@@ -1,1 +1,1 @@
-web: node index.js
+web: gunicorn lunar_lists.wsgi
