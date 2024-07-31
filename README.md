@@ -1,32 +1,32 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+## Index – Table of Contents
+* [User Experience (UX)](#user-experience-ux) 
+* [Features](#features)
+* [Design](#design)
+* [Technologies Used](#technologies-used)
+* [Testing](#testing)
+* [Deployment](#deployment)
+* [Credits](#credits)
 
-Welcome,
+## Deployment
 
-This is the Code Institute student template for deploying your third portfolio project, the Python command-line project. The last update to this file was: **May 14, 2024**
-
-## Reminders
-
-- Your code must be placed in the `run.py` file
-- Your dependencies must be placed in the `requirements.txt` file
-- Do not edit any of the other files or your code may not deploy properly
-
-## Creating the Heroku app
-
-When you create the app, you will need to add two buildpacks from the _Settings_ tab. The ordering is as follows:
-
-1. `heroku/python`
-2. `heroku/nodejs`
-
-You must then create a _Config Var_ called `PORT`. Set this to `8000`
-
-If you have credentials, such as in the Love Sandwiches project, you must create another _Config Var_ called `CREDS` and paste the JSON into the value field.
-
-Connect your GitHub repository and deploy as normal.
-
-## Constraints
-
-The deployment terminal is set to 80 columns by 24 rows. That means that each line of text needs to be 80 characters or less otherwise it will be wrapped onto a second line.
-
----
-
-Happy coding!
+- The site was deployed to Heroku. The steps to deploy are as follows:
+  1. Install the gunicorn python package and create a file called 'Procfile' in the repo's root directory
+  2. In the Procfile write 'web: gunicorn lunar_lists.wsgi'
+  3. In settings.py add ".herokuapp.com" to the ALLOWED_HOSTS list
+  4. In settings.py add 'https://*.herokuapp.com' to CSRF_TRUSTED_ORIGINS list
+  5. git add, commit and push to github
+  6. Navigate to the Heroku dashboard
+  7. Create a new Heroku app
+  8. Give it a name and select the region 'Europe'
+  9. Navigate to settings tab and scroll down to Config Vars
+  10. Click 'Reveal Config Vars'
+  11. Add the following keys:
+      - key = DISABLE_COLLECTSTATIC | value = 1
+      - key = DATABASE_URL | value = (my secret database url)
+      - key = SECRET_KEY | value = (my secret key)
+  12. Navigate to Deploy tab
+  13. Connect to GitHub and select the repo 'lunar-lists'
+  14. Scroll down to 'Manual deploy' and select the 'main' branch
+  15. Click 'Deploy Branch'
+ 
+The live link can be found here - https://lunar-lists-658001c5b8b7.herokuapp.com/
