@@ -2,9 +2,9 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>Your Lists</h1>
-{% if lists %}
+<h2>Your saved Lunar Lists</h2>
 
+{% if lists %}
     <table class="table">
         <thead>
             <tr>
@@ -15,6 +15,7 @@
             </tr>
         </thead>
         <tbody>
+            <!-- iterate through each list belonging to logged in user -->
             {% for list in lists %}
             <tr>
                 <th scope="row">{{ forloop.counter }}</th>

@@ -14,4 +14,4 @@ class HomePage(TemplateView):
 def list_view(request):
     user_lists = List.objects.filter(user_ID=request.user)
 
-    return render(request, 'todo/todo_list.html', {'lists': user_lists})
+    return render(request, 'todo/saved_lists.html', {'lists': user_lists})
