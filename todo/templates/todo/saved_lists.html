@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h2>Your saved Lunar Lists</h2>
+<h1>Saved Lunar Lists</h1>
 
 {% if lists %}
     <table class="table">
@@ -31,4 +31,5 @@
 {% else %}
     <p>You don't have any lists yet.</p>
 {% endif %}
+<p>In order to view a particular Lunar to-do list, click on its name in the above table.</p>
 {% endblock %}

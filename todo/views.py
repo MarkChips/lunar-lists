@@ -12,13 +12,13 @@ class HomePage(TemplateView):
 
 @login_required
 def list_view(request):
-    user_lists = List.objects.filter(user_ID=request.user)
+    user_lists = List.objects.filter(user=request.user)
 
     return render(request, 'todo/saved_lists.html', {'lists': user_lists})
 
 @login_required
 def task_view(request, list_id):
-    list_instance = get_object_or_404(List, id=list_id)
+    list_instance = get_object_or_404(List, id=list_id, user=request.user)
 
     tasks = list_instance.tasks.all()
 
