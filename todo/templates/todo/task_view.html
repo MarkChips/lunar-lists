@@ -5,7 +5,8 @@
     
     {% if tasks %}
         {% for task in tasks %}
-            <div class="border border-primary rounded-end-circle p-3 m-3">{{ task.task_description }}</div>
+            <div class="d-inline-block border border-primary rounded-end-circle p-3 m-3">{{ task.task_description }}</div>
+            <br>
         {% endfor %}
     {% else %}
         <p>No tasks found for this list.</p>
