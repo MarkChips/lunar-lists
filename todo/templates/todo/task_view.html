@@ -4,11 +4,9 @@
     <h1>{{ list.list_name }}</h1>
     
     {% if tasks %}
-        <ul>
         {% for task in tasks %}
-            <li>{{ task.task_description }}</li>
+            <div class="border border-primary rounded-end-circle p-3 m-3">{{ task.task_description }}</div>
         {% endfor %}
-        </ul>
     {% else %}
         <p>No tasks found for this list.</p>
     {% endif %}
