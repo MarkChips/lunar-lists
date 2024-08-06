@@ -2,7 +2,11 @@
 
 {% block content %}
     <h1>{{ list.list_name }}</h1>
-    
+    <form method="post">
+        {% csrf_token %}
+        {{ task_form.as_p }}
+        <button type="submit">Add task</button>
+    </form>
     {% if tasks %}
         <ul>
         {% for task in tasks %}
