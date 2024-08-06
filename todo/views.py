@@ -26,8 +26,11 @@ def list_view(request):
             list.user = request.user
             list.save()
             return redirect('create_task', list_id=list.id)
+        else:
+            print(list_form.errors)
 
-    list_form = ListForm()
+    else:
+        list_form = ListForm()
 
     return render(request, 'todo/saved_lists.html', {
         'lists': user_lists,
@@ -51,7 +54,8 @@ def create_task(request, list_id):
             task.list = list_instance
             task.save()
 
-    task_form = TaskForm()
+    else:
+        task_form = TaskForm()
 
     return render(request, 'todo/create_task.html', {
         'list': list_instance,

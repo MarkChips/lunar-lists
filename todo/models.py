@@ -1,10 +1,11 @@
 from django.db import models
 from django.contrib.auth.models import User
+from datetime import date
 
 # Create your models here.
 class List(models.Model):
     list_name = models.CharField(max_length=200, unique=False)
-    due_by = models.DateField()
+    due_by = models.DateField(default=date.today)
     created_on = models.DateTimeField(auto_now_add=True)
     user = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="lists"
