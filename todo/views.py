@@ -1,10 +1,7 @@
-from django.shortcuts import (
-    get_object_or_404,
-    redirect,
-    render, 
-) 
+from django.shortcuts import get_object_or_404, redirect, render, reverse
 from django.views.generic import TemplateView
 from django.contrib.auth.decorators import login_required
+from django.http import HttpResponseRedirect
 from .models import List, Task
 from .forms import ListForm, TaskForm
 
@@ -14,6 +11,13 @@ class HomePage(TemplateView):
     Displays home page
     """
     template_name = 'todo/index.html'
+
+# @login_required
+# def list_table(request):
+#     table = ListTable(List.objects.all())
+#     RequestConfig(request).configure(table)
+
+#     return render(request, "todo/saved_lists.html", {"table": table})
 
 @login_required
 def list_view(request):
@@ -62,6 +66,19 @@ def create_task(request, list_id):
         'tasks': tasks,
         'task_form': task_form,
     })
+
+@login_required
+def list_delete(request, list_id):
+    print("Delete view called")
+    list_instance = get_object_or_404(
+        List, 
+        id=list_id, 
+        user=request.user
+    )
+
+    list_instance.delete()
+
+    return redirect('list_view',)
 
 @login_required
 def task_view(request, list_id):

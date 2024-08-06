@@ -4,7 +4,8 @@ from . import views
 
 urlpatterns = [
     path("", views.HomePage.as_view(), name='home'),
-    path('lists/', login_required(views.list_view), name='list_view'),
-    path('lists/<int:list_id>/', login_required(views.task_view), name='task_view'),
-    path('lists/create/<int:list_id>/', views.create_task, name='create_task')
+    path('lists/', views.list_view, name='list_view'),
+    path('lists/<int:list_id>/', views.task_view, name='task_view'),
+    path('lists/<int:list_id>/create/', views.create_task, name='create_task'),
+    path('lists/<int:list_id>/delete/', views.list_delete, name='list_delete'),
 ]

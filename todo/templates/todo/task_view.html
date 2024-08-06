@@ -12,4 +12,10 @@
     {% else %}
         <p>No tasks found for this list.</p>
     {% endif %}
+    {% if user.is_authenticated %}
+    <form method="POST" action="{% url 'list_delete' list_id=list.id %}">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Delete List</button>
+    </form>
+    {% endif %}
 {% endblock %}
