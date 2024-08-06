@@ -1,4 +1,8 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import (
+    get_object_or_404,
+    redirect,
+    render, 
+) 
 from django.views.generic import TemplateView
 from django.contrib.auth.decorators import login_required
 from .models import List, Task
@@ -21,6 +25,7 @@ def list_view(request):
             list = list_form.save(commit=False)
             list.user = request.user
             list.save()
+            return redirect('create_task')
 
     list_form = ListForm()
 
@@ -28,6 +33,9 @@ def list_view(request):
         'lists': user_lists,
         'list_form': list_form,
     })
+
+def create_task(request):
+    return render(request, 'todo/create_task.html')
 
 @login_required
 def task_view(request, list_id):
