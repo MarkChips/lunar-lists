@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{{ list.list_name }}</h1>
+    
+    {% if tasks %}
+        <ul>
+        {% for task in tasks %}
+            <li>{{ task.task_description }}</li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No tasks found for this list.</p>
+    {% endif %}
+{% endblock %}

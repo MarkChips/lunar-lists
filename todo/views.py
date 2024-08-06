@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from django.views.generic import TemplateView
 from django.contrib.auth.decorators import login_required
 from .models import List, Task
+from .forms import ListForm, TaskForm
 
 # Create your views here.
 class HomePage(TemplateView):
@@ -14,11 +15,27 @@ class HomePage(TemplateView):
 def list_view(request):
     user_lists = List.objects.filter(user=request.user)
 
-    return render(request, 'todo/saved_lists.html', {'lists': user_lists})
+    if request.method == 'POST':
+        list_form = ListForm(data=request.POST)
+        if list_form.is_valid():
+            list = list_form.save(commit=False)
+            list.user = request.user
+            list.save()
+
+    list_form = ListForm()
+
+    return render(request, 'todo/saved_lists.html', {
+        'lists': user_lists,
+        'list_form': list_form,
+    })
 
 @login_required
 def task_view(request, list_id):
-    list_instance = get_object_or_404(List, id=list_id, user=request.user)
+    list_instance = get_object_or_404(
+        List, 
+        id=list_id, 
+        user=request.user
+    )
 
     tasks = list_instance.tasks.all()
 

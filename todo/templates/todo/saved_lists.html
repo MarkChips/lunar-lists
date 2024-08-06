@@ -32,4 +32,12 @@
     <p>You don't have any lists yet.</p>
 {% endif %}
 <p>In order to view a particular Lunar to-do list, click on its name in the above table.</p>
+<details>
+    <summary>Create a new lunar list</summary>
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ list_form.as_p }}
+        <button type="submit">Create</button>
+    </form>
+</details>
 {% endblock %}
