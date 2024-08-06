@@ -17,5 +17,9 @@
         {% csrf_token %}
         <button type="submit" class="btn btn-danger">Delete List</button>
     </form>
+    <form method="POST" action="{% url 'create_task' list_id=list.id %}">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-warning">Edit List</button>
+    </form>
     {% endif %}
 {% endblock %}

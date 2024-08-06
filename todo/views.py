@@ -12,13 +12,6 @@ class HomePage(TemplateView):
     """
     template_name = 'todo/index.html'
 
-# @login_required
-# def list_table(request):
-#     table = ListTable(List.objects.all())
-#     RequestConfig(request).configure(table)
-
-#     return render(request, "todo/saved_lists.html", {"table": table})
-
 @login_required
 def list_view(request):
     user_lists = List.objects.filter(user=request.user)
@@ -69,7 +62,6 @@ def create_task(request, list_id):
 
 @login_required
 def list_delete(request, list_id):
-    print("Delete view called")
     list_instance = get_object_or_404(
         List, 
         id=list_id, 
@@ -78,7 +70,7 @@ def list_delete(request, list_id):
 
     list_instance.delete()
 
-    return redirect('list_view',)
+    return redirect('list_view')
 
 @login_required
 def task_view(request, list_id):
