@@ -90,6 +90,33 @@ def task_delete(request, list_id, task_id):
     return redirect('create_task', list_id=list_id)
 
 @login_required
+def edit_task(request, list_id, task_id):
+    list_instance = get_object_or_404(
+        List, 
+        id=list_id, 
+        user=request.user
+    )
+    task = get_object_or_404(
+        Task, 
+        id=task_id, 
+        list=list_instance
+    )
+
+    if request.method == 'POST':
+        form = TaskForm(request.POST, instance=task)
+        if form.is_valid():
+            form.save()
+            return redirect('create_task', list_id=list_id)
+    else:
+        form = TaskForm(instance=task)
+
+    return render(request, 'todo/edit_task.html', {
+        'form': form,
+        'list': list_instance,
+        'task': task,
+    })
+
+@login_required
 def task_view(request, list_id):
     list_instance = get_object_or_404(
         List, 
