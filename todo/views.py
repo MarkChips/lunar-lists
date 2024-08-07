@@ -54,6 +54,9 @@ def create_task(request, list_id):
             task.user = request.user
             task.list = list_instance
             task.save()
+            messages.add_message(
+                request, messages.SUCCESS, 'Task added to lunar list!'
+            )
 
     else:
         task_form = TaskForm()
@@ -73,6 +76,9 @@ def list_delete(request, list_id):
     )
 
     list_instance.delete()
+    messages.add_message(
+                request, messages.SUCCESS, 'List deleted successfully'
+            )
 
     return redirect('list_view')
 
@@ -90,6 +96,9 @@ def task_delete(request, list_id, task_id):
     )
 
     task.delete()
+    messages.add_message(
+                request, messages.SUCCESS, 'Task removed'
+            )
 
     return redirect('create_task', list_id=list_id)
 
@@ -110,6 +119,9 @@ def edit_task(request, list_id, task_id):
         form = TaskForm(request.POST, instance=task)
         if form.is_valid():
             form.save()
+            messages.add_message(
+                request, messages.SUCCESS, 'Lunar list entry updated!'
+            )
             return redirect('create_task', list_id=list_id)
     else:
         form = TaskForm(instance=task)
