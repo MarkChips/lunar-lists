@@ -13,6 +13,10 @@ class HomePage(TemplateView):
     """
     template_name = 'todo/index.html'
 
+
+class Account(TemplateView):
+    template_name = 'todo/account_settings.html'
+
 @login_required
 def list_view(request):
     user_lists = List.objects.filter(user=request.user)
