@@ -73,6 +73,23 @@ def list_delete(request, list_id):
     return redirect('list_view')
 
 @login_required
+def task_delete(request, list_id, task_id):
+    list_instance = get_object_or_404(
+        List, 
+        id=list_id, 
+        user=request.user
+    )
+    task = get_object_or_404(
+        Task, 
+        id=task_id, 
+        list=list_instance
+    )
+
+    task.delete()
+
+    return redirect('create_task', list_id=list_id)
+
+@login_required
 def task_view(request, list_id):
     list_instance = get_object_or_404(
         List, 
