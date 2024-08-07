@@ -9,11 +9,33 @@
 {% if user.is_authenticated %}
 <a href="{% url 'account_email' %}" class="btn btn-primary">Change email address</a>
 <a href="{% url 'account_change_password' %}" class="btn btn-primary">Change password</a>
-<form action="{% url 'delete_user' user.id %}" method="post">
-    {% csrf_token %}
-    <button type="submit" class="btn btn-danger">Delete Account</button>
-</form>
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">
+    Delete Account
+</button>
 {% endif %}
+
+<!-- Modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteModalLabel">Delete account?</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Are you sure you want to delete your account? <br> This cannot be undone.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <form action="{% url 'delete_user' user.id %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-danger">Delete Account</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 
 <!-- index.html content ends here -->
 {% endblock %}
