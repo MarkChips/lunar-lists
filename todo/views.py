@@ -3,6 +3,7 @@ from django.views.generic import TemplateView
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.http import HttpResponseRedirect
+from django.contrib.auth.models import User
 from .models import List, Task
 from .forms import ListForm, TaskForm
 
@@ -150,3 +151,18 @@ def task_view(request, list_id):
         'list': list_instance,
         'tasks': tasks,
     })
+
+@login_required
+def delete_user(request, user_id):
+    user = get_object_or_404(User, id=user_id)
+
+    if request.user != user:
+        messages.ERROR(request, "You don't have permission to delete this account.")
+        return redirect('todo/account_settings.html')
+
+    if request.method == 'POST':
+        user.delete()
+        messages.add_message(request, messages.SUCCESS, 'Your account has been successfully deleted.')
+        return redirect('home')
+
+    return render(request, 'home', {'user': user})
