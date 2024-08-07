@@ -1,6 +1,7 @@
 from django.shortcuts import get_object_or_404, redirect, render, reverse
 from django.views.generic import TemplateView
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 from django.http import HttpResponseRedirect
 from .models import List, Task
 from .forms import ListForm, TaskForm
@@ -22,6 +23,9 @@ def list_view(request):
             list = list_form.save(commit=False)
             list.user = request.user
             list.save()
+            messages.add_message(
+                request, messages.SUCCESS, 'New lunar list created!'
+            )
             return redirect('create_task', list_id=list.id)
         else:
             print(list_form.errors)
