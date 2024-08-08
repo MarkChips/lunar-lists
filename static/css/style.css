@@ -1,3 +1,23 @@
 h1 {
     color: red;
 }
+
+.flame {
+    height: 100%;
+}
+
+.orange {
+    background-color: orangered;
+}
+
+.yellow {
+    background-color: gold;
+}
+
+.white {
+    background-color: white;
+}
+
+.blue {
+    background-color: slateblue;
+}

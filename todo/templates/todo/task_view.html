@@ -2,21 +2,37 @@
 
 {% block content %}
     <h1>{{ list.list_name }}</h1>
-    
-    {% if tasks %}
-        {% for task in tasks %}
-            <div class="d-inline-block border border-primary rounded-end-5 p-3 m-3">{{ task.task_description }}</div>
-            <br>
-        {% endfor %}
-    {% else %}
-        <p>No tasks found for this list.</p>
-    {% endif %}
     {% if user.is_authenticated %}
     <!-- Button trigger modal -->
     <a href="{% url 'create_task' list_id=list.id %}" class="btn btn-warning">Edit List</a>
     <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">
         Delete List
     </button>
+    <br>
+    {% endif %}
+    {% if tasks %}
+    <div class="container">
+        {% for task in tasks %}
+            <div class="row">
+                <div class="col col-2 pe-0">
+                    <div class="py-1 ps-5 rounded-start-circle flame orange">
+                        <div class="py-1 ps-5 rounded-start-circle flame yellow">
+                            <div class="py-2 ps-4 rounded-start-circle flame white">
+                                <div class="rounded-start-circle flame blue">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col ps-0">
+                    <div class="d-inline-block border border-primary rounded-end-5 p-2">{{ task.task_description }}</div>
+                </div>
+            </div>
+            <br>
+        {% endfor %}
+    </div>
+    {% else %}
+        <p>No tasks found for this list.</p>
     {% endif %}
 
     <!-- Modal -->
