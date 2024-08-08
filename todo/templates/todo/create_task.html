@@ -15,17 +15,17 @@
         <div class="container">
             {% for task in tasks %}
                 <div class="row">
-                    <div class="col col-2 pe-0">
+                    <div class="col pe-0">
                         <div class="py-1 ps-5 rounded-start-circle flame orange">
-                            <div class="py-1 ps-5 rounded-start-circle flame yellow">
-                                <div class="py-2 ps-4 rounded-start-circle flame white">
+                            <div class="py-1 rounded-start-circle flame yellow">
+                                <div class="py-2 rounded-start-circle flame white">
                                     <div class="rounded-start-circle flame blue">
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col ps-0">
+                    <div class="col col-lg-6 ps-0">
                         <div class="d-inline-block rounded-end-5 p-2 rocket">
                             <a href="{% url 'edit_task' list_id=list.id task_id=task.id %}" class="btn btn-warning">Edit Task</a>
                             <!-- Button trigger modal -->
@@ -35,6 +35,7 @@
                             {{ task.task_description }}
                         </div>
                     </div>
+                    <div class="col col-lg-3"></div>
                 </div>
                 <br>
                 <!-- Modal -->

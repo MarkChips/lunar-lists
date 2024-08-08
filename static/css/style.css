@@ -22,10 +22,12 @@ h1 {
 
 .yellow {
     background-color: gold;
+    padding-left: 40%;
 }
 
 .white {
     background-color: white;
+    padding-left: 60%;
 }
 
 .blue {
