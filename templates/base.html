@@ -1,6 +1,7 @@
 {% load static %}
 
 {% url 'home' as home_url %}
+{% url 'list_view' as list_view %}
 {% url 'account_login' as login_url %}
 {% url 'account_signup' as signup_url %}
 {% url 'account_logout' as logout_url %}
@@ -27,26 +28,35 @@
     <p class="m-3">You are not logged in</p>
     {% endif %}
     <!-- navigation -->
-    <nav class="d-flex justify-content-around">
-        {% if user.is_authenticated %}
-        <li class="nav-item">
-            <a href="{% url 'list_view' %}" class="nav-link {% if request.path == list_view %}active{% endif %}" aria-current="page">Saved Lists</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link {% if request.path == settings_url %}active{% endif %}" aria-current="page" href="{% url 'account' %}">Account settings</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link {% if request.path == logout_url %}active{% endif %}" aria-current="page" href="{% url 'account_logout' %}">Logout</a>
-        </li>
-        {% else %}
-        <li class="nav-item">
-            <a class="nav-link {% if request.path == signup_url %}active{% endif %}" aria-current="page"
-                href="{% url 'account_signup' %}">Register</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link {% if request.path == login_url %}active{% endif %}" aria-current="page" href="{% url 'account_login' %}">Login</a>
-        </li>
-        {% endif %}
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Lunar Lists</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                {% if user.is_authenticated %}
+                <li class="nav-item">
+                    <a href="{% url 'list_view' %}" class="nav-link {% if request.path == list_view %}active{% endif %}" aria-current="page">Saved Lists</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{% url 'account' %}" class="nav-link {% if request.path == settings_url %}active{% endif %}" aria-current="page">Account settings</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{% url 'account_logout' %}" class="nav-link {% if request.path == logout_url %}active{% endif %}" aria-current="page">Logout</a>
+                </li>
+                {% else %}
+                <li class="nav-item">
+                    <a href="{% url 'account_signup' %}" class="nav-link {% if request.path == signup_url %}active{% endif %}" aria-current="page">Register</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{% url 'account_login' %}" class="nav-link {% if request.path == login_url %}active{% endif %}" aria-current="page">Login</a>
+                </li>
+                {% endif %}
+            </ul>
+          </div>
+        </div>
     </nav>
     <!-- Django message notifications -->
     <div class="container">
