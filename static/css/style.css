@@ -2,6 +2,10 @@ h1 {
     color: red;
 }
 
+.rocket {
+    box-shadow: 0 -19px 18px -8px rgba(0, 0, 0, 0.3) inset;
+}
+
 .flame {
     height: 100%;
 }
