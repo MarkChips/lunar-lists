@@ -4,7 +4,7 @@ from datetime import date
 
 # Create your models here.
 class List(models.Model):
-    list_name = models.CharField(max_length=200, unique=False)
+    list_name = models.CharField(max_length=50)
     due_by = models.DateField(default=date.today)
     created_on = models.DateTimeField(auto_now_add=True)
     user = models.ForeignKey(
@@ -18,7 +18,7 @@ class List(models.Model):
 
 
 class Task(models.Model):
-    task_description = models.TextField()
+    task_description = models.CharField(max_length=200)
     is_completed = models.BooleanField(default=False)
     list = models.ForeignKey(
         List, on_delete=models.CASCADE, related_name="tasks"
