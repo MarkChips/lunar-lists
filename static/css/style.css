@@ -5,13 +5,11 @@ body {
     font-family: 'Space Mono', sans-serif;
 }
 
-p {
-    color: white;
-}
-
 h1,
 h2,
-h3 {
+h3,
+p,
+summary {
     color: white;
 }
 

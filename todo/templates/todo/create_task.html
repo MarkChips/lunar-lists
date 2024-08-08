@@ -7,7 +7,7 @@
         <form method="post" class="d-flex">
             {% csrf_token %}
             {{ task_form.as_p }}
-            <button class="btn btn-outline-primary ms-2" type="submit">Add task</button>
+            <button class="btn btn-primary ms-2" type="submit">Add task</button>
         </form>
     </div>
     {% if tasks %}
@@ -27,9 +27,9 @@
                     </div>
                     <div class="col col-lg-6 ps-0">
                         <div class="d-inline-block rounded-end-5 p-2 rocket">
-                            <a href="{% url 'edit_task' list_id=list.id task_id=task.id %}" class="btn btn-warning">Edit Task</a>
+                            <a href="{% url 'edit_task' list_id=list.id task_id=task.id %}" class="btn btn-sm btn-warning">Edit Task</a>
                             <!-- Button trigger modal -->
-                            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal{{ task.id }}">
+                            <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal{{ task.id }}">
                                 Delete Task
                             </button>
                             {{ task.task_description }}
