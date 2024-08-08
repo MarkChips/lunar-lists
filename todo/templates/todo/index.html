@@ -6,7 +6,10 @@
 
 <h1>Lunar Lists</h1>
 <!-- Display register and login buttons. If already logged in: display nothing -->
-{% if not user.is_authenticated %}
+{% if user.is_authenticated %}
+<a href="{% url 'list_view' %}" class="btn btn-primary">View your saved lunar lists</a>
+<a href="{% url 'account_logout' %}" class="btn btn-primary">Logout</a>
+{% else %}
 <a href="{% url 'account_signup' %}" class="btn btn-primary">Create an account</a>
 <a href="{% url 'account_login' %}" class="btn btn-primary">Already have an <br> account? Login here</a>
 {% endif %}

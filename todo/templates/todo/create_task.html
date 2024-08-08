@@ -2,11 +2,16 @@
 
 {% block content %}
     <h1>{{ list.list_name }}</h1>
-    <form method="post">
-        {% csrf_token %}
-        {{ task_form.as_p }}
-        <button class="btn btn-outline-primary" type="submit">Add task</button>
-    </form>
+    <div class="d-flex justify-content-center">
+    </div>
+    <a href="{% url 'list_view' %}" class="btn btn-primary my-3 ms-5">Finish Editing</a>
+    <div class="container">
+        <form method="post" class="d-flex">
+            {% csrf_token %}
+            {{ task_form.as_p }}
+            <button class="btn btn-outline-primary ms-2" type="submit">Add task</button>
+        </form>
+    </div>
     {% if tasks %}
     {% if user.is_authenticated %}
         {% for task in tasks %}
