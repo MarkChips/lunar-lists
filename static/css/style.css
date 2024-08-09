@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
+/* General */
 body {
     background: url("../images/moon-stars-unsplash.jpg") repeat center center/cover;
     font-family: 'Space Mono', sans-serif;
@@ -13,10 +14,25 @@ summary {
     color: white;
 }
 
+/* saved_lists */
+summary::marker {
+    font-size: xx-large;
+    content: '🚀';
+}
+[open] summary::marker {
+    font-size: xx-large;
+    content: '🌌';
+}
+summary:hover {
+    cursor: pointer;
+    background: black;
+}
+
 label[for=id_due_by] {
     margin-left: 1.9rem;
 }
 
+/* create_task */
 .addtask {
     height: 30px;
     min-width: 87px;
@@ -26,6 +42,7 @@ label[for=id_due_by] {
     }
 }
 
+/* task_view */
 .rocket {
     box-shadow: 0 -19px 18px -8px rgba(0, 0, 0, 0.7) inset;
     background-color: white;

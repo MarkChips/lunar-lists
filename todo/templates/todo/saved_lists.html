@@ -32,8 +32,8 @@
 {% else %}
     <p class="m-3 fw-bold">You don't have any lists yet. To get started, click the drop down form below.</p>
 {% endif %}
-<details class="m-5">
-    <summary>Click to create a new lunar list</summary>
+<details class="d-inline-block m-5">
+    <summary class="rounded">Click to create a new lunar list <span class="fs-1">🛰</span></summary>
     <form method="post">
         {% csrf_token %}
         {{ list_form.as_p }}
