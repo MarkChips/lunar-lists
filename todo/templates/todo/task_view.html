@@ -1,14 +1,15 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>{{ list.list_name }}</h1>
+    <h1 class="m-2">{{ list.list_name }}</h1>
     {% if user.is_authenticated %}
     <!-- Button trigger modal -->
-    <a href="{% url 'create_task' list_id=list.id %}" class="btn btn-warning">Edit List</a>
-    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">
-        Delete List
-    </button>
-    <br>
+     <div class="container m-2">
+         <a href="{% url 'create_task' list_id=list.id %}" class="btn btn-sm btn-warning">Edit List</a>
+         <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">
+             Delete List
+         </button>
+     </div>
     {% endif %}
     {% if tasks %}
     <div class="container">

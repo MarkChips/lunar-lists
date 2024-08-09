@@ -13,6 +13,15 @@ summary {
     color: white;
 }
 
+.addtask {
+    height: 30px;
+    min-width: 87px;
+    @media (max-width: 504px) {
+        margin-top: 1.45rem;
+        margin-right: 11rem;
+    }
+}
+
 .rocket {
     box-shadow: 0 -19px 18px -8px rgba(0, 0, 0, 0.7) inset;
     background-color: white;
