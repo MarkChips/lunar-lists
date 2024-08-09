@@ -16,10 +16,25 @@ class HomePage(TemplateView):
 
 
 class Account(TemplateView):
+    """
+    Displays account settings page
+    """
     template_name = 'todo/account_settings.html'
 
 @login_required
 def list_view(request):
+    """
+    Display :model:`todo.List`. Create a new List.
+
+    **Context**
+    ``lists``
+        All :model:`todo.List` created by request user.
+    ``list_form``
+        An instance of :form:`todo.ListForm`.
+
+    **Template:**
+    :template:`todo/saved_lists.html`
+    """
     user_lists = List.objects.filter(user=request.user)
 
     if request.method == 'POST':
@@ -43,7 +58,41 @@ def list_view(request):
         'list_form': list_form,
     })
 
+@login_required
+def list_delete(request, list_id):
+    """
+    Delete an instance of :model:`todo.List` belonging to request user,
+    then redirect to :template:`todo/saved_lists.html`.
+    """
+    list_instance = get_object_or_404(
+        List, 
+        id=list_id, 
+        user=request.user
+    )
+
+    list_instance.delete()
+    messages.add_message(
+                request, messages.SUCCESS, 'List deleted successfully'
+            )
+
+    return redirect('list_view')
+
+@login_required
 def create_task(request, list_id):
+    """
+    Create an instance of :model:`todo.Task`.
+
+    **Context**
+    ``list``
+        An instance of :model:`todo.List`.
+    ``tasks``
+        All :model:`todo.Task` belong to parent list.
+    ``task_form``
+        An instance of :form:`todo.TaskForm`.
+
+    **Template:**
+    :template:`todo/create_task.html`
+    """
     list_instance = get_object_or_404(
         List, 
         id=list_id, 
@@ -73,22 +122,11 @@ def create_task(request, list_id):
     })
 
 @login_required
-def list_delete(request, list_id):
-    list_instance = get_object_or_404(
-        List, 
-        id=list_id, 
-        user=request.user
-    )
-
-    list_instance.delete()
-    messages.add_message(
-                request, messages.SUCCESS, 'List deleted successfully'
-            )
-
-    return redirect('list_view')
-
-@login_required
 def task_delete(request, list_id, task_id):
+    """
+    Delete an instance of :model:`todo.Task` belonging to request user,
+    then redirect to :template:`todo/create_task.html`.
+    """
     list_instance = get_object_or_404(
         List, 
         id=list_id, 
@@ -109,6 +147,17 @@ def task_delete(request, list_id, task_id):
 
 @login_required
 def edit_task(request, list_id, task_id):
+    """
+    Update an instance of :model:`todo.Task`.
+
+    **Context**
+    ``form``
+
+    ``list``
+
+    ``task``
+    
+    """
     list_instance = get_object_or_404(
         List, 
         id=list_id, 
@@ -139,6 +188,9 @@ def edit_task(request, list_id, task_id):
 
 @login_required
 def task_view(request, list_id):
+    """
+
+    """
     list_instance = get_object_or_404(
         List, 
         id=list_id, 
@@ -154,6 +206,9 @@ def task_view(request, list_id):
 
 @login_required
 def delete_user(request, user_id):
+    """
+
+    """
     user = get_object_or_404(User, id=user_id)
 
     if request.user != user:
