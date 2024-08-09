@@ -1,19 +1,18 @@
 {% extends "base.html" %}
 
 {% block content %}
-
-<!-- index.html content starts here -->
-
-<h1>Lunar Lists</h1>
-<h3>Welcome to Lunar Lists! Your place to create to do lists for all future dates. Take your tasks to the moon!</h3>
-<!-- Display register and login buttons. If already logged in: display nothing -->
-{% if user.is_authenticated %}
-<a href="{% url 'list_view' %}" class="btn btn-primary">View your saved lunar lists</a>
-<a href="{% url 'account_logout' %}" class="btn btn-primary">Logout</a>
-{% else %}
-<a href="{% url 'account_signup' %}" class="btn btn-primary">Create an account</a>
-<a href="{% url 'account_login' %}" class="btn btn-primary">Already have an <br> account? Login here</a>
-{% endif %}
-
-<!-- index.html content ends here -->
+    <!-- index.html content starts here -->
+    <h3 class="m-3">Welcome to <strong>Lunar Lists!</strong> Your place to create to do lists for all future dates. <br><strong>Take your tasks
+            to the moon!</strong></h3>
+    <!-- Display register and login buttons. If already logged in: display nothing -->
+    <div class="container m-2">
+        {% if user.is_authenticated %}
+            <a href="{% url 'list_view' %}" class="btn btn-primary mt-2">View your saved lunar lists</a>
+            <a href="{% url 'account_logout' %}" class="btn btn-primary mt-2">Logout</a>
+        {% else %}
+            <a href="{% url 'account_signup' %}" class="btn btn-primary mt-2">Create an account</a>
+            <a href="{% url 'account_login' %}" class="btn btn-primary mt-2">Already have an <br> account? Login here</a>
+        {% endif %}
+    </div>
+    <!-- index.html content ends here -->
 {% endblock %}

@@ -28,12 +28,12 @@
             {% endfor %}
         </tbody>
     </table>
+    <p class="m-3 fw-bold">In order to view a particular Lunar to-do list, click on its name in the above table.</p>
 {% else %}
-    <p>You don't have any lists yet.</p>
+    <p class="m-3 fw-bold">You don't have any lists yet. To get started, click the drop down form below.</p>
 {% endif %}
-<p class="m-3 fw-bold">In order to view a particular Lunar to-do list, click on its name in the above table.</p>
 <details class="m-5">
-    <summary>Create a new lunar list</summary>
+    <summary>Click to create a new lunar list</summary>
     <form method="post">
         {% csrf_token %}
         {{ list_form.as_p }}
