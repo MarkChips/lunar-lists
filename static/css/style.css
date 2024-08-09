@@ -10,6 +10,7 @@ h1,
 h2,
 h3,
 p,
+li,
 summary {
     color: white;
 }
@@ -33,7 +34,7 @@ label[for=id_due_by] {
 }
 
 /* create_task */
-.add-task {
+#add-task {
     height: 30px;
     min-width: 87px;
     @media (max-width: 504px) {
@@ -76,5 +77,14 @@ label[for=id_due_by] {
 }
 
 .primaryAction {
+    margin-left: 9rem;
+}
+
+/* signup */
+label[for=id_email] {
+    margin-left: 1.85rem;
+}
+
+#sign-up {
     margin-left: 9rem;
 }
