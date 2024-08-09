@@ -88,3 +88,12 @@ label[for=id_email] {
 #sign-up {
     margin-left: 9rem;
 }
+
+/* password_change */
+label[for=id_password1] {
+    margin-left: 2.4rem;
+}
+
+#change-password {
+    margin-left: 9rem;
+}
