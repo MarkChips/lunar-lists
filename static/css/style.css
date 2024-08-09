@@ -19,6 +19,13 @@ summary {
     margin-left: 9rem;
 }
 
+.highlight {
+    display: inline-block;
+    padding: .5em;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+}
+
 /* saved_lists */
 summary::marker {
     font-size: xx-large;
@@ -32,7 +39,7 @@ summary::marker {
 
 summary:hover {
     cursor: pointer;
-    background: black;
+    background: midnightblue;
 }
 
 label[for=id_due_by] {

@@ -7,10 +7,10 @@
 {% block content %}
 <h1 class="m-2">{% trans "Register" %}</h1>
 
-<p class="m-2">{% blocktrans %}Already have an account? Then please <a
+<p class="m-2 highlight">{% blocktrans %}Already have an account? Then please <a
     href="{{ login_url }}">login</a>.{% endblocktrans %}</p>
-
-<form class="signup m-3" id="signup_form" method="post" action="{% url 'account_signup' %}">
+<br>
+<form class="signup m-3 highlight" id="signup_form" method="post" action="{% url 'account_signup' %}">
   {% csrf_token %}
   {{ form.as_p }}
   {% if redirect_field_value %}
