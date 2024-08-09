@@ -69,3 +69,8 @@ label[for=id_due_by] {
 .blue {
     background-color: slateblue;
 }
+
+/* login */
+#id_login {
+    margin-left: 1.85rem;
+}
