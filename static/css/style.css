@@ -13,6 +13,10 @@ summary {
     color: white;
 }
 
+label[for=id_due_by] {
+    margin-left: 1.9rem;
+}
+
 .addtask {
     height: 30px;
     min-width: 87px;
