@@ -33,7 +33,7 @@ label[for=id_due_by] {
 }
 
 /* create_task */
-.addtask {
+.add-task {
     height: 30px;
     min-width: 87px;
     @media (max-width: 504px) {
