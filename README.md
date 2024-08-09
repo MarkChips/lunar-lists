@@ -2,6 +2,7 @@
 * [User Experience (UX)](#user-experience-ux) 
 * [Features](#features)
 * [Design](#design)
+* [Agile](#agile)
 * [Technologies Used](#technologies-used)
 * [Testing](#testing)
 * [Deployment](#deployment)
@@ -30,3 +31,19 @@
   15. Click 'Deploy Branch'
  
 The live link can be found here - https://lunar-lists-658001c5b8b7.herokuapp.com/
+
+## Credits
+### Images
+- The moon background image was downloaded from https://unsplash.com/.
+### Code
+- The following were adjusted from bootstrap 5.3:
+  - The navbar
+  - The modal delete warning
+- The following were adjusted from django allauth:
+  - login.html
+  - logout.html
+  - password_change.html
+  - signup.html
+- The following were adjusted from the code institute tutorial project 'Django Blog':
+  - Django message notifications
+  - User login status
