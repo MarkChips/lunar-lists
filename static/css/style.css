@@ -24,10 +24,12 @@ summary::marker {
     font-size: xx-large;
     content: '🚀';
 }
+
 [open] summary::marker {
     font-size: xx-large;
     content: '🌌';
 }
+
 summary:hover {
     cursor: pointer;
     background: black;
@@ -41,6 +43,7 @@ label[for=id_due_by] {
 #add-task {
     height: 30px;
     min-width: 87px;
+
     @media (max-width: 504px) {
         margin-top: 1.45rem;
         margin-right: 11rem;
@@ -73,6 +76,12 @@ label[for=id_due_by] {
 
 .blue {
     background-color: midnightblue;
+}
+
+.engine {
+    width: 1.5rem;
+    box-shadow: 0 -19px 18px -8px rgba(0, 0, 0, 0.7) inset;
+    background-color: #353030;
 }
 
 /* login */
