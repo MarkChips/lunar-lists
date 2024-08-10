@@ -7,19 +7,20 @@ from django.contrib.auth.models import User
 from .models import List, Task
 from .forms import ListForm, TaskForm
 
-# Create your views here.
+
 class HomePage(TemplateView):
     """
-    Displays home page
+    Displays home page.
     """
     template_name = 'todo/index.html'
 
 
 class Account(TemplateView):
     """
-    Displays account settings page
+    Displays account settings page.
     """
     template_name = 'todo/account_settings.html'
+
 
 @login_required
 def list_view(request):
@@ -58,6 +59,7 @@ def list_view(request):
         'list_form': list_form,
     })
 
+
 @login_required
 def list_delete(request, list_id):
     """
@@ -65,17 +67,18 @@ def list_delete(request, list_id):
     then redirect to :template:`todo/saved_lists.html`.
     """
     list_instance = get_object_or_404(
-        List, 
-        id=list_id, 
+        List,
+        id=list_id,
         user=request.user
     )
 
     list_instance.delete()
     messages.add_message(
-                request, messages.SUCCESS, 'List deleted successfully'
-            )
+        request, messages.SUCCESS, 'List deleted successfully'
+    )
 
     return redirect('list_view')
+
 
 @login_required
 def create_task(request, list_id):
@@ -86,7 +89,7 @@ def create_task(request, list_id):
     ``list``
         An instance of :model:`todo.List`.
     ``tasks``
-        All :model:`todo.Task` belong to parent list.
+        All :model:`todo.Task` belonging to parent list.
     ``task_form``
         An instance of :form:`todo.TaskForm`.
 
@@ -94,8 +97,8 @@ def create_task(request, list_id):
     :template:`todo/create_task.html`
     """
     list_instance = get_object_or_404(
-        List, 
-        id=list_id, 
+        List,
+        id=list_id,
         user=request.user
     )
 
@@ -121,6 +124,7 @@ def create_task(request, list_id):
         'task_form': task_form,
     })
 
+
 @login_required
 def task_delete(request, list_id, task_id):
     """
@@ -128,22 +132,23 @@ def task_delete(request, list_id, task_id):
     then redirect to :template:`todo/create_task.html`.
     """
     list_instance = get_object_or_404(
-        List, 
-        id=list_id, 
+        List,
+        id=list_id,
         user=request.user
     )
     task = get_object_or_404(
-        Task, 
-        id=task_id, 
+        Task,
+        id=task_id,
         list=list_instance
     )
 
     task.delete()
     messages.add_message(
-                request, messages.SUCCESS, 'Task removed'
-            )
+        request, messages.SUCCESS, 'Task removed'
+    )
 
     return redirect('create_task', list_id=list_id)
+
 
 @login_required
 def edit_task(request, list_id, task_id):
@@ -152,20 +157,23 @@ def edit_task(request, list_id, task_id):
 
     **Context**
     ``form``
-
+        An instance of :form:`todo.TaskForm`.
     ``list``
-
+        A parent instance of :model:`todo.List`.
     ``task``
-    
+        An instance of :model:`todo.Task`.
+
+    **Template:**
+    :template:`todo/edit_task.html`
     """
     list_instance = get_object_or_404(
-        List, 
-        id=list_id, 
+        List,
+        id=list_id,
         user=request.user
     )
     task = get_object_or_404(
-        Task, 
-        id=task_id, 
+        Task,
+        id=task_id,
         list=list_instance
     )
 
@@ -186,14 +194,24 @@ def edit_task(request, list_id, task_id):
         'task': task,
     })
 
+
 @login_required
 def task_view(request, list_id):
     """
+    Display all tasks belonging to a list.
 
+    **Context**
+    ``list``
+        An instance of :model:`todo.List`.
+    ``tasks``
+        All :model:`todo.Task` belonging to parent list.
+
+    **Template:**
+    :template:`todo/task_view.html`
     """
     list_instance = get_object_or_404(
-        List, 
-        id=list_id, 
+        List,
+        id=list_id,
         user=request.user
     )
 
@@ -204,20 +222,30 @@ def task_view(request, list_id):
         'tasks': tasks,
     })
 
+
 @login_required
 def delete_user(request, user_id):
     """
+    Delete user's account.
 
+    **Context**
+    ``user``
+        An instance of :model:`django.contrib.auth.models.User`.
+
+    **Template:**
+    :template:`todo/index.html`
     """
     user = get_object_or_404(User, id=user_id)
 
     if request.user != user:
-        messages.ERROR(request, "You don't have permission to delete this account.")
+        messages.ERROR(
+            request, "You don't have permission to delete this account.")
         return redirect('todo/account_settings.html')
 
     if request.method == 'POST':
         user.delete()
-        messages.add_message(request, messages.SUCCESS, 'Your account has been successfully deleted.')
+        messages.add_message(request, messages.SUCCESS,
+                             'Your account has been successfully deleted.')
         return redirect('home')
 
     return render(request, 'home', {'user': user})
