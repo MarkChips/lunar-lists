@@ -230,7 +230,7 @@ def delete_user(request, user_id):
 
     **Context**
     ``user``
-        An instance of :model:`django.contrib.auth.models.User`.
+        An instance of :model:`auth.User`.
 
     **Template:**
     :template:`todo/index.html`
