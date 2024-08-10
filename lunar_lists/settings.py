@@ -51,12 +51,14 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'allauth',
     'allauth.account',
-    'allauth.socialaccount',    
+    'allauth.socialaccount',
     'todo',
 ]
 
 SITE_ID = 1
+# Once logged in, user will be redirected to their saved lists
 LOGIN_REDIRECT_URL = '/lists/'
+# Once logged out, user will be redirected to home page
 LOGOUT_REDIRECT_URL = '/'
 
 MIDDLEWARE = [
@@ -138,8 +140,8 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
-
-TIME_ZONE = 'UTC'
+# UK time zone BST/GMT
+TIME_ZONE = 'GB'
 
 USE_I18N = True
 
