@@ -1,16 +1,18 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <div class="d-flex">
-        <h1 class="m-2">{{ list.list_name }}</h1>
-        <a href="{% url 'list_view' %}" class="btn btn-primary m-2 p-2">Finish Editing</a>
-    </div>
-    <div class="d-flex mx-3">
-        <form method="post" class="d-flex">
-            {% csrf_token %}
-            {{ task_form.as_p }}
-            <button class="btn btn-sm btn-primary ms-2" id="add-task" type="submit">Add task</button>
-        </form>
+    <div class="highlight m-3">
+        <div class="d-flex">
+            <h1 class="m-2">{{ list.list_name }}</h1>
+            <a href="{% url 'list_view' %}" class="btn btn-primary m-2 p-2">Finish Editing</a>
+        </div>
+        <div class="d-flex mx-3">
+            <form method="post" class="d-flex">
+                {% csrf_token %}
+                {{ task_form.as_p }}
+                <button class="btn btn-sm btn-primary ms-2" id="add-task" type="submit">Add task</button>
+            </form>
+        </div>
     </div>
     {% if tasks %}
         {% if user.is_authenticated %}
