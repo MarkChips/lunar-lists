@@ -1,76 +1,87 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1 class="m-2">{{ list.list_name }}</h1>
-    {% if user.is_authenticated %}
-    <!-- Button trigger modal -->
-     <div class="container m-2">
-         <a href="{% url 'create_task' list_id=list.id %}" class="btn btn-sm btn-warning">Edit List</a>
-         <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">
-             Delete List
-         </button>
-     </div>
-    {% endif %}
-    {% if tasks %}
-    <div class="container">
-        {% for task in tasks %}
-            <div class="row">
-                <div class="col pe-0">
-                    <div class="py-1 ps-5 rounded-start-circle flame orange">
-                        <div class="py-1 rounded-start-circle flame yellow">
-                            <div class="py-2 rounded-start-circle flame white">
-                                <div class="rounded-start-circle flame blue">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="engine"></div>
-                <div class="col col-lg-6 ps-0">
-                    <div class="d-inline-block rounded-end-5 p-2 pe-3 text-end rocket">
-                        {{ task.task_description }} 
-                        <i class="fa-solid fa-user-astronaut border border-danger border-5 rounded-circle"></i>
-                        <br>
-                        <div class="d-inline-flex p-1">
-                            <p class="text-black me-1 mb-0">Done? </p>
-                            <form method="post">
-                                {% csrf_token %}
-                                <label>
-                                    <input type="hidden" name="task_id" value="{{ task.id }}">
-                                    <input type="checkbox" name="is_completed" {% if task.is_completed %}checked{% endif %} onchange="this.form.submit()">
-                                </label>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-                <div class="col d-none d-md-block"></div>
+{% if user.is_authenticated %}
+<div class="m-3">
+    <div class="row">
+        <div class="col col-2"></div>
+        <div class="col">
+            <h1>{{ list.list_name }}</h1>
+            <h6>Due by: {{ list.due_by }}</h6>
+            <!-- Button trigger modal -->
+            <div class="d-inline-flex">
+                <a href="{% url 'create_task' list_id=list.id %}" class="btn btn-sm btn-warning m-2 px-3">Edit List</a>
+                <button type="button" class="btn btn-sm btn-danger m-2" data-bs-toggle="modal"
+                    data-bs-target="#deleteModal">
+                    Delete List
+                </button>
             </div>
-            <br>
-        {% endfor %}
+        </div>
+        <div class="col"></div>
     </div>
-    {% else %}
-        <p class="m-3 highlight">No tasks found for this list.</p>
-    {% endif %}
-
-    <!-- Modal -->
-    <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="deleteModalLabel">Delete lunar list?</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+</div>
+{% endif %}
+{% if tasks %}
+<div class="container">
+    {% for task in tasks %}
+    <div class="row">
+        <div class="col pe-0">
+            <div class="py-1 ps-5 rounded-start-circle flame orange">
+                <div class="py-1 rounded-start-circle flame yellow">
+                    <div class="py-2 rounded-start-circle flame white">
+                        <div class="rounded-start-circle flame blue">
+                        </div>
+                    </div>
                 </div>
-                <div class="modal-body">
-                    Are you sure you want to delete this lunar list? <br> This cannot be undone.
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <form method="POST" action="{% url 'list_delete' list_id=list.id %}">
+            </div>
+        </div>
+        <div class="engine"></div>
+        <div class="col col-lg-6 ps-0">
+            <div class="d-inline-block rounded-end-5 p-2 pe-3 text-end rocket">
+                {{ task.task_description }}
+                <i class="fa-solid fa-user-astronaut border border-danger border-5 rounded-circle"></i>
+                <br>
+                <div class="d-inline-flex p-1">
+                    <p class="text-black me-1 mb-0">Done? </p>
+                    <form method="post">
                         {% csrf_token %}
-                        <button type="submit" class="btn btn-danger">Delete List</button>
+                        <label>
+                            <input type="hidden" name="task_id" value="{{ task.id }}">
+                            <input type="checkbox" name="is_completed" {% if task.is_completed %}checked{% endif %}
+                                onchange="this.form.submit()">
+                        </label>
                     </form>
                 </div>
             </div>
         </div>
+        <div class="col d-none d-md-block"></div>
     </div>
+    <br>
+    {% endfor %}
+</div>
+{% else %}
+<p class="m-3 highlight">No tasks found for this list.</p>
+{% endif %}
+
+<!-- Modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteModalLabel">Delete lunar list?</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Are you sure you want to delete this lunar list? <br> This cannot be undone.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <form method="POST" action="{% url 'list_delete' list_id=list.id %}">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-danger">Delete List</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}
