@@ -1,3 +1,7 @@
+# Lunar Lists
+### A to-do list website
+Lunar lists allows users to create to-do lists for any task with the addition of a fun and friendly space theme. Whether you are a busy person, or a forgetful one, you can use lunar lists to log all your tasks, set their due date, and mark them as completed when they're done. Your lunar lists are only available to you, so don't worry about people tampering with your lists.
+
 ## Index – Table of Contents
 * [User Experience (UX)](#user-experience-ux) 
 * [Features](#features)
