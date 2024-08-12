@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+/* General */
+body {
+    background: url("../images/moon-stars-unsplash.jpg") repeat center center/cover;
+    font-family: 'Space Mono', sans-serif;
+}
+
+h1,
+h2,
+h3,
+h6,
+p,
+li,
+summary {
+    color: white;
+}
+
+.ms-9 {
+    margin-left: 9rem;
+}
+
+.highlight {
+    display: inline-block;
+    padding: .5em;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+}
+
+/* saved_lists */
+summary::marker {
+    font-size: xx-large;
+    content: '🚀';
+}
+
+[open] summary::marker {
+    font-size: xx-large;
+    content: '🌌';
+}
+
+summary:hover {
+    cursor: pointer;
+    background: midnightblue;
+}
+
+label[for=id_due_by] {
+    margin-left: 1.9rem;
+}
+
+/* create_task */
+#add-task {
+    height: 30px;
+    min-width: 87px;
+
+    @media (max-width: 504px) {
+        margin-top: 1.45rem;
+    }
+}
+
+/* task_view */
+.rocket {
+    box-shadow: 0 -19px 18px -8px rgba(0, 0, 0, 0.7) inset;
+    background-color: white;
+}
+
+.flame {
+    height: 100%;
+}
+
+.orange {
+    background-color: orangered;
+}
+
+.yellow {
+    background-color: gold;
+    padding-left: 40%;
+}
+
+.white {
+    background-color: white;
+    padding-left: 60%;
+}
+
+.blue {
+    background-color: midnightblue;
+}
+
+.engine {
+    width: 1.5rem;
+    box-shadow: 0 -19px 18px -8px rgba(0, 0, 0, 0.7) inset;
+    background-color: #353030;
+}
+
+/* login */
+#id_login {
+    margin-left: 1.85rem;
+}
+
+/* signup */
+label[for=id_email] {
+    margin-left: 1.85rem;
+}
+
+/* password_change */
+label[for=id_password1] {
+    margin-left: 2.4rem;
+}
