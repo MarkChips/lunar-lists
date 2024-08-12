@@ -1,18 +1,192 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <!-- index.html content starts here -->
-    <h3 class="m-3 highlight">Welcome to <strong>Lunar Lists!</strong> Your place to create to do lists for all future dates. <br><strong>Take your tasks
-            to the moon!</strong></h3>
-    <!-- Display register and login buttons. If already logged in: display nothing -->
-    <div class="container m-2">
-        {% if user.is_authenticated %}
-            <a href="{% url 'list_view' %}" class="btn btn-primary mt-2">View your saved lunar lists</a>
-            <a href="{% url 'account_logout' %}" class="btn btn-primary mt-2">Logout</a>
-        {% else %}
-            <a href="{% url 'account_signup' %}" class="btn btn-primary mt-2">Create an account</a>
-            <a href="{% url 'account_login' %}" class="btn btn-primary mt-2">Already have an <br> account? Login here</a>
-        {% endif %}
+<!-- index.html content starts here -->
+ <div class="m-3 highlight">
+    <h3>Welcome to <strong>Lunar Lists!</strong> Your place to create to-do lists for all future
+        dates. <br><strong>Take your tasks to the moon!</strong></h3>
+    <ul>
+        <li>Create Lists</li>
+        <li>Add due dates</li>
+        <li>Mark items as done</li>
+    </ul>
+ </div>
+<!-- Display register and login buttons. If already logged in: display link to saved lists, and logout button -->
+<div class="mb-2 ms-5">
+    {% if user.is_authenticated %}
+    <a href="{% url 'list_view' %}" class="btn btn-primary mt-2">View your saved <br>lunar lists</a>
+    <a href="{% url 'account_logout' %}" class="btn btn-primary mt-2">Logout</a>
+    {% else %}
+    <a href="{% url 'account_signup' %}" class="btn btn-primary mt-2">Create an account</a>
+    <a href="{% url 'account_login' %}" class="btn btn-primary mt-2">Already have an <br> account? Login here</a>
+    {% endif %}
+</div>
+<!-- Example use cases -->
+<div class="m-3 highlight">
+    <h3>Example Use Cases:</h3>
+    <p>Can't remember everything you need to buy from the supermarket? Create a lunar list!
+        <br>Can't remember all of the DIY tasks needed around the house? Create a lunar list!
+        <br>Want to plan a day out? Create a lunar list! Endless possibilities!</p>
+    <p>Below is an example of a lunar list that you can create:</p>
     </div>
-    <!-- index.html content ends here -->
+
+<div class="container">
+
+    <div class="row">
+        <div class="col pe-0">
+            <div class="py-1 ps-5 rounded-start-circle flame orange">
+                <div class="py-1 rounded-start-circle flame yellow">
+                    <div class="py-2 rounded-start-circle flame white">
+                        <div class="rounded-start-circle flame blue">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="engine"></div>
+        <div class="col col-lg-6 ps-0">
+            <div class="d-inline-block rounded-end-5 p-2 pe-3 text-end rocket">
+                Bread
+                <i class="fa-solid fa-user-astronaut border border-danger border-5 rounded-circle"></i>
+                <br>
+                <div class="d-inline-flex p-1">
+                    <p class="text-black me-1 mb-0">Done? </p>
+                    <form method="post">
+                        <label>
+                            <input type="checkbox" name="is_completed">
+                        </label>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col d-none d-md-block"></div>
+    </div>
+    <br>
+
+    <div class="row">
+        <div class="col pe-0">
+            <div class="py-1 ps-5 rounded-start-circle flame orange">
+                <div class="py-1 rounded-start-circle flame yellow">
+                    <div class="py-2 rounded-start-circle flame white">
+                        <div class="rounded-start-circle flame blue">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="engine"></div>
+        <div class="col col-lg-6 ps-0">
+            <div class="d-inline-block rounded-end-5 p-2 pe-3 text-end rocket">
+                Milk
+                <i class="fa-solid fa-user-astronaut border border-danger border-5 rounded-circle"></i>
+                <br>
+                <div class="d-inline-flex p-1">
+                    <p class="text-black me-1 mb-0">Done? </p>
+                    <form method="post">
+                        <label>
+                            <input type="checkbox" name="is_completed">
+                        </label>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col d-none d-md-block"></div>
+    </div>
+    <br>
+
+    <div class="row">
+        <div class="col pe-0">
+            <div class="py-1 ps-5 rounded-start-circle flame orange">
+                <div class="py-1 rounded-start-circle flame yellow">
+                    <div class="py-2 rounded-start-circle flame white">
+                        <div class="rounded-start-circle flame blue">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="engine"></div>
+        <div class="col col-lg-6 ps-0">
+            <div class="d-inline-block rounded-end-5 p-2 pe-3 text-end rocket">
+                Pasta
+                <i class="fa-solid fa-user-astronaut border border-danger border-5 rounded-circle"></i>
+                <br>
+                <div class="d-inline-flex p-1">
+                    <p class="text-black me-1 mb-0">Done? </p>
+                    <form method="post">
+                        <label>
+                            <input type="checkbox" name="is_completed">
+                        </label>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col d-none d-md-block"></div>
+    </div>
+    <br>
+
+    <div class="row">
+        <div class="col pe-0">
+            <div class="py-1 ps-5 rounded-start-circle flame orange">
+                <div class="py-1 rounded-start-circle flame yellow">
+                    <div class="py-2 rounded-start-circle flame white">
+                        <div class="rounded-start-circle flame blue">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="engine"></div>
+        <div class="col col-lg-6 ps-0">
+            <div class="d-inline-block rounded-end-5 p-2 pe-3 text-end rocket">
+                Eggs
+                <i class="fa-solid fa-user-astronaut border border-danger border-5 rounded-circle"></i>
+                <br>
+                <div class="d-inline-flex p-1">
+                    <p class="text-black me-1 mb-0">Done? </p>
+                    <form method="post">
+                        <label>
+                            <input type="checkbox" name="is_completed">
+                        </label>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col d-none d-md-block"></div>
+    </div>
+    <br>
+
+    <div class="row">
+        <div class="col pe-0">
+            <div class="py-1 ps-5 rounded-start-circle flame orange">
+                <div class="py-1 rounded-start-circle flame yellow">
+                    <div class="py-2 rounded-start-circle flame white">
+                        <div class="rounded-start-circle flame blue">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="engine"></div>
+        <div class="col col-lg-6 ps-0">
+            <div class="d-inline-block rounded-end-5 p-2 pe-3 text-end rocket">
+                Butter
+                <i class="fa-solid fa-user-astronaut border border-danger border-5 rounded-circle"></i>
+                <br>
+                <div class="d-inline-flex p-1">
+                    <p class="text-black me-1 mb-0">Done? </p>
+                    <form method="post">
+                        <label>
+                            <input type="checkbox" name="is_completed">
+                        </label>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col d-none d-md-block"></div>
+    </div>
+    <br>
+
+</div>
+<!-- index.html content ends here -->
 {% endblock %}
