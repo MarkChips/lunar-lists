@@ -2,38 +2,40 @@
 
 {% block content %}
 <h1 class="m-2">Saved Lunar Lists</h1>
-
+<!-- table containing user's saved lists -->
 {% if lists %}
-    <table class="table">
-        <thead>
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">List name</th>
-                <th scope="col">Due by</th>
-                <th scope="col">Created on</th>
-            </tr>
-        </thead>
-        <tbody>
-            <!-- iterate through each list belonging to logged in user -->
-            {% for list in lists %}
-            <tr>
-                <th scope="row">{{ forloop.counter }}</th>
-                <!-- <td>{{ list.list_name }}</td> -->
-                <td>
-                    <a href="{% url 'task_view' list.id %}">{{ list.list_name }}</a>
-                </td>
-                <td>{{ list.due_by }}</td>
-                <td>{{ list.created_on }}</td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-    <p class="m-3 fw-bold highlight">In order to view a particular Lunar to-do list, click on its name in the above table.</p>
-    <br>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">List name</th>
+            <th scope="col">Due by</th>
+            <th scope="col">Created on</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- iterate through each list belonging to logged in user -->
+        {% for list in lists %}
+        <tr>
+            <th scope="row">{{ forloop.counter }}</th>
+            <td>
+                <a href="{% url 'task_view' list.id %}">{{ list.list_name }}</a>
+            </td>
+            <td>{{ list.due_by }}</td>
+            <td>{{ list.created_on }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<!-- tutorial text -->
+<p class="m-3 fw-bold highlight">In order to view a particular Lunar to-do list, click on its name in the above table.
+</p>
+<br>
 {% else %}
-    <p class="m-3 fw-bold highlight">You don't have any lists yet. To get started, click the drop down form below.</p>
-    <br>
+<p class="m-3 fw-bold highlight">You don't have any lists yet. To get started, click the drop down button below.</p>
+<br>
 {% endif %}
+<!-- drop down form -->
 <details class="d-inline-block m-5 highlight">
     <summary class="rounded">Click to create a new lunar list <span class="fs-1">🛰</span></summary>
     <form method="post">
