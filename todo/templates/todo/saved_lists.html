@@ -41,6 +41,7 @@
     <form method="post">
         {% csrf_token %}
         {{ list_form.as_p }}
+        <p class="ms-4 mt-0"><em>Year - Month - Day</em></p>
         <button class="btn btn-primary ms-9" type="submit">Create</button>
     </form>
 </details>
