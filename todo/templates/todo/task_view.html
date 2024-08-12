@@ -27,9 +27,20 @@
                 </div>
                 <div class="engine"></div>
                 <div class="col col-lg-6 ps-0">
-                    <div class="d-inline-block rounded-end-5 p-2 rocket">
+                    <div class="d-inline-block rounded-end-5 p-2 pe-3 text-end rocket">
                         {{ task.task_description }} 
                         <i class="fa-solid fa-user-astronaut border border-danger border-5 rounded-circle"></i>
+                        <br>
+                        <div class="d-inline-flex p-1">
+                            <p class="text-black me-1 mb-0">Completed? </p>
+                            <form method="post">
+                                {% csrf_token %}
+                                <label>
+                                    <input type="hidden" name="task_id" value="{{ task.id }}">
+                                    <input type="checkbox" name="is_completed" {% if task.is_completed %}checked{% endif %} onchange="this.form.submit()">
+                                </label>
+                            </form>
+                        </div>
                     </div>
                 </div>
                 <div class="col d-none d-md-block"></div>
@@ -38,7 +49,7 @@
         {% endfor %}
     </div>
     {% else %}
-        <p>No tasks found for this list.</p>
+        <p class="m-3 highlight">No tasks found for this list.</p>
     {% endif %}
 
     <!-- Modal -->

@@ -198,7 +198,8 @@ def edit_task(request, list_id, task_id):
 @login_required
 def task_view(request, list_id):
     """
-    Display all tasks belonging to a list.
+    Display all tasks belonging to a list. 
+    Mark a task as completed.
 
     **Context**
     ``list``
@@ -216,6 +217,17 @@ def task_view(request, list_id):
     )
 
     tasks = list_instance.tasks.all()
+
+    if request.method == 'POST':
+        task_id = request.POST.get('task_id')
+        try:
+            task = Task.objects.get(id=task_id, list=list_instance)
+            is_completed = 'is_completed' in request.POST
+            task.is_completed = is_completed
+            task.save()
+        except Task.DoesNotExist:
+            print(f"Task with id {task_id} does not exist.")
+        return redirect('task_view', list_id=list_id)
 
     return render(request, 'todo/task_view.html', {
         'list': list_instance,
