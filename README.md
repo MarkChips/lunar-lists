@@ -18,11 +18,19 @@ Lunar lists allows users to create to-do lists for any task with the addition of
 ### Responsiveness
 
 ### Validation
-#### pep8 - CI Python Linter
-I tested every python file against the validator. Not many violations were found, except for the ocasional whitespace and line length.
+#### CSS
+I tested the CSS using the [W3 CSS validator](https://jigsaw.w3.org/css-validator/). Two parse errors were found relating to an embedded media query. The errors were resolved by moving the media query to a new line. Bootstrap was the cause behind all 434 warnings; these relate to vendor extensions and variables not being statically checked.
+- Validator before and after fixing:
+
+![css before](documentation/validator/css/css-before.png)
+![css after](documentation/validator/css/css-after.png)
+
+#### Python pep8
+I tested every python file using [CI Python Linter](https://pep8ci.herokuapp.com/). Not many violations were found, except for the ocasional whitespace and line length.
 - urls.py before and after amendments:
-![urls.py before](documentation/pep8-validator/urls-before.png)
-![urls.py after](documentation/pep8-validator/urls-after.png)
+
+![urls.py before](documentation/validator/pep8/urls-before.png)
+![urls.py after](documentation/validator/pep8/urls-after.png)
 
 - I left the following pep8 violations in the settings.py as the code could not be made shorter for the AUTH_PASSWORD_VALIDATORS:
 ![settings.py leftovers pep8 violations](documentation/pep8-validator/settings-after.png)

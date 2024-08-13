@@ -51,8 +51,10 @@ label[for=id_due_by] {
 #add-task {
     height: 30px;
     min-width: 87px;
+}
 
-    @media (max-width: 504px) {
+@media (max-width: 504px) {
+    #add-task {
         margin-top: 1.45rem;
     }
 }
