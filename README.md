@@ -35,16 +35,7 @@ Below are displayed screenshots of all the pages as they would appear on an ipho
 
 ### Validation
 #### HTML
-I tested all HTML templates via text input on [W3 HTML validator](https://validator.w3.org/). There were no errors found except for a parse error relating to the `</html>` closing tag in the base.html file:
-![html validator error message](documentation/validator/html/html-error.png)
-
-I was unable to diagnose the cause of this error. I checked it against the following possible causes and found that it did not violate any of them:
-- Premature closing of the HTML document: The `</html>` tag should be the last element in an HTML document. If it appears earlier, it can cause parsing errors.
-- Missing opening `<html>` tag: If the document lacks an opening` <html>` tag, the closing tag may be considered out of place.
-- Nesting issues: There might be unclosed tags or improperly nested elements before the `</html>` tag.
-- Extra content after `</html>`: Any content after the closing HTML tag can trigger parsing errors.
-
-Since the error does not relate to any of these problems, and causes no issues with running the website, I have chosen to ignore this one error. The table below was ticked off for each page tested, disregarding the previously mentioned error.
+I tested all HTML templates via text input on [W3 HTML validator](https://validator.w3.org/). The table below was ticked off for each page tested:
 
 | HTML page       | Pass? |
 |-----------------|-------|
@@ -59,7 +50,17 @@ Since the error does not relate to any of these problems, and causes no issues w
 | create_task     | ✅     |
 | edit_task       | ✅     |
 
-**When using the HTML validator with urls of the deployed website, the django template language caused errors.** It looks as though these are due to the indentation, and `<p>` element used by the django form insertion. Interestingly the parse error did not show up in these instances.
+Two pages had errors which needed to be fixed: signup and password_change. The form created by Django AllAuth and inserted with the django template language caused four errors:
+![HTML validator error messages](documentation/validator/html/password-change-before-errors.png)
+
+It appears these issues were caused by the `<p>` and `<span>` element used by the django form insertion. Changing `{{ form.as_p }}` to `{{ form.as_div }}` fixed the errors, however it completely ruined the layout causing one of the fields to appear completely out of place. The only option left was to manually place all the labels and link to the individual form fields. After running the new code through the validator it showed no errors. I also tested the signup and password_change pages and found that they still functioned as they should.
+- password_change code before and after fix:
+![password_change before fix](documentation/validator/html/password-change-before.png)
+![password_change after fix](documentation/validator/html/password-change-after.png)
+
+- signup code before and after fix:
+![signup before fix](documentation/validator/html/register-before.png)
+![signup after fix](documentation/validator/html/register-after.png)
 
 #### CSS
 I tested the CSS using [W3 CSS validator](https://jigsaw.w3.org/css-validator/). Two parse errors were found relating to a nested media query. The errors were resolved by moving the media query to a new line. Bootstrap was the cause behind all 434 warnings; these relate to vendor extensions and variables not being statically checked.
