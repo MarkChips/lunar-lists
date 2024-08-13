@@ -18,8 +18,35 @@ Lunar lists allows users to create to-do lists for any task with the addition of
 ### Responsiveness
 
 ### Validation
+#### HTML
+I tested all HTML templates via text input on [W3 HTML validator](https://validator.w3.org/). There were no errors found except for a parse error relating to the `</html>` closing tag in the base.html file:
+![html validator error message](documentation/validator/html/html-error.png)
+
+I was unable to diagnose the cause of this error. I checked it against the following possible causes and found that it did not violate any of them:
+- Premature closing of the HTML document: The `</html>` tag should be the last element in an HTML document. If it appears earlier, it can cause parsing errors.
+- Missing opening `<html>` tag: If the document lacks an opening` <html>` tag, the closing tag may be considered out of place.
+- Nesting issues: There might be unclosed tags or improperly nested elements before the `</html>` tag.
+- Extra content after `</html>`: Any content after the closing HTML tag can trigger parsing errors.
+
+Since the error does not relate to any of these problems, and causes no issues with running the website, I have chosen to ignore this one error. The table below was ticked off for each page tested, disregarding the previously mentioned error.
+
+| HTML page       | Pass? |
+|-----------------|-------|
+| index           | ✅     |
+| logout          | ✅     |
+| signup          | ✅     |
+| login           | ✅     |
+| saved_lists     | ✅     |
+| task_view       | ✅     |
+| create_task     | ✅     |
+| edit_task       | ✅     |
+| account_settings| ✅     |
+| password_change | ✅     |
+
+**When using the HTML validator with urls of the deployed website, the django template language caused errors.** It looks as though these are due to the indentation, and `<p>` element used by the django form insertion. Interestingly the parse error did not show up in these instances.
+
 #### CSS
-I tested the CSS using the [W3 CSS validator](https://jigsaw.w3.org/css-validator/). Two parse errors were found relating to an embedded media query. The errors were resolved by moving the media query to a new line. Bootstrap was the cause behind all 434 warnings; these relate to vendor extensions and variables not being statically checked.
+I tested the CSS using [W3 CSS validator](https://jigsaw.w3.org/css-validator/). Two parse errors were found relating to an embedded media query. The errors were resolved by moving the media query to a new line. Bootstrap was the cause behind all 434 warnings; these relate to vendor extensions and variables not being statically checked.
 - Validator before and after fixing:
 
 ![css before](documentation/validator/css/css-before.png)
@@ -33,7 +60,8 @@ I tested every python file using [CI Python Linter](https://pep8ci.herokuapp.com
 ![urls.py after](documentation/validator/pep8/urls-after.png)
 
 - I left the following pep8 violations in the settings.py as the code could not be made shorter for the AUTH_PASSWORD_VALIDATORS:
-![settings.py leftovers pep8 violations](documentation/pep8-validator/settings-after.png)
+
+![settings.py leftovers pep8 violations](documentation/validator/pep8/settings-after.png)
 
 ### Manual Testing
 
