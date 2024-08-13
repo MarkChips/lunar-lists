@@ -114,16 +114,40 @@ I tested every python file using [CI Python Linter](https://pep8ci.herokuapp.com
 | Clicking create takes user to create_task                                | ✅      |
 
 #### task_view
-
+| Feature                                                  | Pass? |
+|----------------------------------------------------------|-------|
+| Clicking on a checkbox updates task to 'is completed'    | ✅      |
+| Unchecking a checkbox updates task to not 'is completed' | ✅      |
+| Checkboxes remain ticked when revisiting task_view       | ✅      |
+| Clicking 'edit list' takes user to create_task           | ✅      |
+| Clicking 'delete list' opens modal                       | ✅      |
+| Clicking 'delete list' from within modal deletes list    | ✅      |
+| List title and due_by are displayed                      | ✅      |
 
 #### create_task
-
+| Feature                                                                     | Pass? |
+|-----------------------------------------------------------------------------|-------|
+| Clicking 'finish editing' takes user back to saved_lists                    | ✅      |
+| User can enter task into text field and add task                            | ✅      |
+| Clicking 'edit' takes user to edit_task for the particular task             | ✅      |
+| Clicking 'delete' opens a confirmation modal                                | ✅      |
+| Clicking 'delete task' from within the modal deletes the task from the list | ✅      |
 
 #### edit_task
-
+| Feature                                            | Pass? |
+|----------------------------------------------------|-------|
+| Clicking 'cancel' takes user back to create_task   | ✅      |
+| Task description field prepopulates with task text | ✅      |
+| User can change text and save changes              | ✅      |
 
 #### account_settings
-
+| Feature                                                    | Pass? |
+|------------------------------------------------------------|-------|
+| User can change password                                   | ✅      |
+| Clicking 'delete account' brings up confirmation modal     | ✅      |
+| Clicking 'delete account' within the modal deletes account | ✅      |
+| User cannot view another user's list                       | ✅      |
+| Logged out user cannot manipulate another user's lists     | ✅      |
 
 ## Deployment
 
