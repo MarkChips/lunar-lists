@@ -9,7 +9,9 @@ urlpatterns = [
     path('lists/<int:list_id>/', views.task_view, name='task_view'),
     path('lists/<int:list_id>/create/', views.create_task, name='create_task'),
     path('lists/<int:list_id>/delete/', views.list_delete, name='list_delete'),
-    path('lists/<int:list_id>/<int:task_id>/delete/', views.task_delete, name='task_delete'),
-    path('lists/<int:list_id>/<int:task_id>/edit/', views.edit_task, name='edit_task'),
+    path('lists/<int:list_id>/<int:task_id>/delete/',
+         views.task_delete, name='task_delete'),
+    path('lists/<int:list_id>/<int:task_id>/edit/',
+         views.edit_task, name='edit_task'),
     path('<int:user_id>/', views.delete_user, name='delete_user'),
 ]

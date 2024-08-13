@@ -198,7 +198,7 @@ def edit_task(request, list_id, task_id):
 @login_required
 def task_view(request, list_id):
     """
-    Display all tasks belonging to a list. 
+    Display all tasks belonging to a list.
     Mark a task as completed.
 
     **Context**

@@ -14,6 +14,21 @@ Lunar lists allows users to create to-do lists for any task with the addition of
 * [Deployment](#deployment)
 * [Credits](#credits)
 
+## Testing
+### Responsiveness
+
+### Validation
+#### pep8 - CI Python Linter
+I tested every python file against the validator. Not many violations were found, except for the ocasional whitespace and line length.
+- urls.py before and after amendments:
+![urls.py before](documentation/pep8-validator/urls-before.png)
+![urls.py after](documentation/pep8-validator/urls-after.png)
+
+- I left the following pep8 violations in the settings.py as the code could not be made shorter for the AUTH_PASSWORD_VALIDATORS:
+![settings.py leftovers pep8 violations](documentation/pep8-validator/settings-after.png)
+
+### Manual Testing
+
 ## Deployment
 
 - The site was deployed to Heroku. The steps to deploy are as follows:
@@ -28,7 +43,6 @@ Lunar lists allows users to create to-do lists for any task with the addition of
   9. Navigate to settings tab and scroll down to Config Vars
   10. Click 'Reveal Config Vars'
   11. Add the following keys:
-      - key = DISABLE_COLLECTSTATIC | value = 1
       - key = DATABASE_URL | value = (my secret database url)
       - key = SECRET_KEY | value = (my secret key)
   12. Navigate to Deploy tab
