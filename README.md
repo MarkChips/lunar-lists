@@ -16,6 +16,22 @@ Lunar lists allows users to create to-do lists for any task with the addition of
 
 ## Testing
 ### Responsiveness
+I used dev tools on firefox and set the responsive design mode to iPhone 11 pro (as it had the thinnest display). During development I focused on mobile first design to support the majority of web users. The important thing was to prevent the need to scroll horizontally on mobile view. Occassionally I had to remove the bootstrap class 'container' to prevent horizontal scrolling.
+- The navbar turns into a burger bar on small screen sizes.
+- The task entries take up the full width on small screen sizes, while only taking up a third on large screens.
+
+Below are displayed screenshots of all the pages as they would appear on an iphone 11 pro:
+
+![index page mobile view](documentation/screenshots/index.png)
+![register page mobile view](documentation/screenshots/register.png)
+![login page mobile view](documentation/screenshots/login.png)
+![logout page mobile view](documentation/screenshots/logout.png)
+![account settings page mobile view](documentation/screenshots/account-settings.png)
+![change password page mobile view](documentation/screenshots/change-password.png)
+![saved lists page mobile view](documentation/screenshots/saved-lists.png)
+![task view page mobile view](documentation/screenshots/task-view.png)
+![create tasks page mobile view](documentation/screenshots/create-task.png)
+![edit task page mobile view](documentation/screenshots/edit-task.png)
 
 ### Validation
 #### HTML
@@ -46,7 +62,7 @@ Since the error does not relate to any of these problems, and causes no issues w
 **When using the HTML validator with urls of the deployed website, the django template language caused errors.** It looks as though these are due to the indentation, and `<p>` element used by the django form insertion. Interestingly the parse error did not show up in these instances.
 
 #### CSS
-I tested the CSS using [W3 CSS validator](https://jigsaw.w3.org/css-validator/). Two parse errors were found relating to an embedded media query. The errors were resolved by moving the media query to a new line. Bootstrap was the cause behind all 434 warnings; these relate to vendor extensions and variables not being statically checked.
+I tested the CSS using [W3 CSS validator](https://jigsaw.w3.org/css-validator/). Two parse errors were found relating to a nested media query. The errors were resolved by moving the media query to a new line. Bootstrap was the cause behind all 434 warnings; these relate to vendor extensions and variables not being statically checked.
 - Validator before and after fixing:
 
 ![css before](documentation/validator/css/css-before.png)
