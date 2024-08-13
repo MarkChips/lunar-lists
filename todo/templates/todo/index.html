@@ -3,7 +3,7 @@
 {% block content %}
 <!-- index.html content starts here -->
 <!-- Welcome message -->
-<div class="m-3 highlight">
+<section class="m-3 highlight">
     <h3>Welcome to <strong>Lunar Lists!</strong> Your place to create to-do lists for all future
         dates. <br><strong>Take your tasks to the moon!</strong></h3>
     <ul>
@@ -11,7 +11,7 @@
         <li>Add due dates</li>
         <li>Mark items as done</li>
     </ul>
-</div>
+</section>
 <!-- Display register and login buttons. If already logged in: display link to saved lists, and logout button -->
 <div class="mb-2 ms-5">
     {% if user.is_authenticated %}
@@ -23,13 +23,13 @@
     {% endif %}
 </div>
 <!-- Example use cases -->
-<div class="m-3 highlight">
+<section class="m-3 highlight">
     <h3>Example Use Cases:</h3>
     <p>Can't remember everything you need to buy from the supermarket? Create a lunar list!
         <br>Can't remember all of the DIY tasks needed around the house? Create a lunar list!
         <br>Want to plan a day out? Create a lunar list! Endless possibilities!</p>
     <p>Below is an example of a lunar list that you can create:</p>
-</div>
+</section>
 <!-- Copied Example. Checkboxes deliberately do nothing. -->
 <div class="container">
     <div class="row">

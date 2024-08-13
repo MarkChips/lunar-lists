@@ -2,7 +2,7 @@
 
 {% block content %}
 <!-- title and buttons -->
-<div class="highlight m-3">
+<section class="highlight m-3">
     <div class="d-flex">
         <h1 class="m-2">{{ list.list_name }}</h1>
         <a href="{% url 'list_view' %}" class="btn btn-primary m-2 p-2">Finish Editing</a>
@@ -14,7 +14,7 @@
             <button class="btn btn-sm btn-primary ms-2" id="add-task" type="submit">Add task</button>
         </form>
     </div>
-</div>
+</section>
 <!-- task list -->
 {% if tasks %}
 {% if user.is_authenticated %}
