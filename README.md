@@ -52,12 +52,12 @@ Since the error does not relate to any of these problems, and causes no issues w
 | logout          | ✅     |
 | signup          | ✅     |
 | login           | ✅     |
+| account_settings| ✅     |
+| password_change | ✅     |
 | saved_lists     | ✅     |
 | task_view       | ✅     |
 | create_task     | ✅     |
 | edit_task       | ✅     |
-| account_settings| ✅     |
-| password_change | ✅     |
 
 **When using the HTML validator with urls of the deployed website, the django template language caused errors.** It looks as though these are due to the indentation, and `<p>` element used by the django form insertion. Interestingly the parse error did not show up in these instances.
 
@@ -80,6 +80,49 @@ I tested every python file using [CI Python Linter](https://pep8ci.herokuapp.com
 ![settings.py leftovers pep8 violations](documentation/validator/pep8/settings-after.png)
 
 ### Manual Testing
+#### base.html
+| Feature                                                       | Pass? |
+|---------------------------------------------------------------|-------|
+| Clicking on the website name takes user to index              | ✅      |
+| Clicking on 'Saved lists' takes user to saved_lists           | ✅      |
+| Clicking on 'Account settings' takes user to account_settings | ✅      |
+| Clicking on 'Logout' takes user to logout                     | ✅      |
+| Clicking on 'Register' takes user to register                 | ✅      |
+| Clicking on 'Login' takes user to login                       | ✅      |
+| When user is not logged in 'You are not logged in' is displayed at page top| ✅      |
+| When user is logged in 'Current user: <user.name>' is displayed at page top| ✅      |
+
+#### Homepage
+| Feature                                                       | Pass? |
+|---------------------------------------------------------------|-------|
+| Clicking on the website name takes user to index              | ✅      |
+| Clicking on 'Saved lists' takes user to saved_lists           | ✅      |
+| Clicking on 'Account settings' takes user to account_settings | ✅      |
+| Clicking on 'Logout' takes user to logout                     | ✅      |
+| Clicking on 'Register' takes user to register                 | ✅      |
+| Clicking on 'Login' takes user to login                       | ✅      |
+
+#### Saved_lists
+| Feature                                                                  | Pass? |
+|--------------------------------------------------------------------------|-------|
+| When user has no lists tutorial message is displayed                     | ✅      |
+| Users lists are displayed in a table, with instructions below            | ✅      |
+| Clicking on a list name takes user to  task_view of that particular list | ✅      |
+| Clicking on 'click to create a new lunar list' shows form                | ✅      |
+| User can create a list with a custom name and due date                   | ✅      |
+| Clicking create takes user to create_task                                | ✅      |
+
+#### task_view
+
+
+#### create_task
+
+
+#### edit_task
+
+
+#### account_settings
+
 
 ## Deployment
 
