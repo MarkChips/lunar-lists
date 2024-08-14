@@ -2,6 +2,8 @@
 ### A to-do list website
 Lunar lists allows users to create to-do lists for any task with the addition of a fun and friendly space theme. Whether you are a busy person, or a forgetful one, you can use lunar lists to log all your tasks, set their due date, and mark them as completed when they're done. Your lunar lists are only available to you, so don't worry about people tampering with your lists.
 
+The live website can be viewed here: https://lunar-lists-658001c5b8b7.herokuapp.com/
+
 ![Responsive Mockup](documentation/screenshots/amiresponsive.png)
 
 ## Index – Table of Contents
@@ -31,17 +33,21 @@ Someone who wants to better organise their tasks for each day. Busy people, forg
 
 ### User stories
 In total I created 24 user stories and closed 17 of them. The rest have been added to the 'Future Features' list. I started off by writing out the user stories on a google document. I also included the moscow ranking beside each user story.
+
 ![user stories on google docs](documentation/user-stories/user-story-google-doc.png)
 
 Every user story that I added to my kanban board, I made sure to add acceptance criteria and a list of task tickboxes. Below I have included some key user stories that helped me reach my goals.
 
 - I wanted the list creation to be minimal so that lists can be created quickly and with ease. The task list helped me think where to start. After a while I understood that first you create the models, then the view, urls, and finally the template.
+
 ![create a to do list user story](documentation/user-stories/create-to-do-list.png)
 
 - During development I talked to various friends and family members about my website, and it became clear that it wasn't obvious enough of what the website could be used for. For this reason I thought it important to provide example cases and a display example.
+
 ![use case examples user story](documentation/user-stories/use-cases.png)
 
 - From feedback it became clear that having just a list of items to-do without being able to cross them off was not that useful. For this reason I felt it important to be able to mark items as completed. It took a few iterations before I was able to make the checkboxes update the correct task, remain checked, and allow for unchecking.
+
 ![mark a task as completed user story](documentation/user-stories/mark-done.png)
 
 ## Features
@@ -188,6 +194,34 @@ The Kanban board served as a visual representation of the project's progress and
 ### MOSCOW Prioritisation
 All user stories were assigned a moscow prioritisation to determine which user stories needed to be worked on first. Using github projects I created labels for each moscow rank and assigned them to each user story. I made these visible on the project page so that I could easily spot the priorities. All items required for the MVP were given the 'Must have' rank.
 
+## Technologies Used
+- HTML
+- CSS
+- Python
+  - asgiref==3.8.1
+  - gunicorn==20.1.0
+  - oauthlib==3.2.2
+  - psycopg==3.2.1
+  - PyJWT==2.9.0
+  - python3-openid==3.2.0
+  - requests-oauthlib==2.0.0
+  - sqlparse==0.5.1
+  - urllib3==1.26.19
+  - whitenoise==5.3.0
+- Django
+  - dj-database-url==0.5.0
+  - Django==4.2.14
+  - django-allauth==0.57.2
+- Bootstrap 5.3
+- Fontawsome
+- Google fonts
+- Balsamiq
+- Heroku
+- Git
+- GitHub
+- GitHub projects
+- Lucid charts
+
 ## Testing
 ### Responsiveness
 I used dev tools on firefox and set the responsive design mode to iPhone 11 pro (as it had the thinnest display). During development I focused on mobile first design to support the majority of web users. The important thing was to prevent the need to scroll horizontally on mobile view. Occassionally I had to remove the bootstrap class 'container' to prevent horizontal scrolling.
@@ -272,6 +306,7 @@ I tested every python file using [CI Python Linter](https://pep8ci.herokuapp.com
 
 #### Lighthouse
 I used opera dev tools lighthouse benchmark to test for accessibility, best practices, and SEO (search engine optimisation). I was able to improve the SEO by adding meta description and meta keywords into the head element. I also replaced divs with section elements. I improved the accessibility by making sure that the checkboxes are connected to labels, and that aria-labels are used for the website name and sample cases checkboxes. In future I plan on working more on mobile performance since this was less than the desktop performance.
+
 ![lighthouse test results](documentation/validator/lighthouse.png)
 
 ### Manual Testing
