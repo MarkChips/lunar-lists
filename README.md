@@ -14,6 +14,49 @@ Lunar lists allows users to create to-do lists for any task with the addition of
 * [Deployment](#deployment)
 * [Credits](#credits)
 
+## User Experience (UX)
+### Database Planning
+I used Lucidchart to create an ERD (entity relationship diagram). My project only required three models: User, List, and Task. The User model was imported from Django AllAuth. The primary key ids are created by django, so do not need to be written out in models.py. There are two data elements, belonging to the List model, that I did not use in the final deployment: total_tasks and completed_tasks. These are planned for a future feature.
+![Entity Relationship Diagram](documentation/diagrams/lunar-lists-ERD.jpeg)
+
+### The Purpose and Target Audience
+#### Problem Statement
+I find myself to be very busy, so busy that I forget what needs to be done.
+
+#### Purpose
+A website which helps users keep track of their daily tasks.
+
+#### Target Audience
+Someone who wants to better organise their tasks for each day. Busy people, forgetful people. People with a failing memory like my dad.
+
+### Wireframes
+#### Homepage
+![home wireframe](documentation/wireframes/Homewireframe.png)
+
+#### Create an account
+![register wireframe](documentation/wireframes/Create-account.png)
+
+#### Login
+![login wireframe](documentation/wireframes/Login-screen.png)
+
+#### Saved lists
+![saved lists wireframe](documentation/wireframes/Saved-lists.png)
+
+#### Task view
+![Task view wireframe](documentation/wireframes/List-view.png)
+
+#### Create tasks
+![create tasks wireframe](documentation/wireframes/Create-list.png)
+
+#### Edit list
+![edit list wireframe](documentation/wireframes/Edit-list-screen.png)
+
+#### Edit entry
+![edit entry wireframe](documentation/wireframes/Edit-entry-screen.png)
+
+#### Account settings
+![account settings wireframe](documentation/wireframes/Account-settings.png)
+
 ## Testing
 ### Responsiveness
 I used dev tools on firefox and set the responsive design mode to iPhone 11 pro (as it had the thinnest display). During development I focused on mobile first design to support the majority of web users. The important thing was to prevent the need to scroll horizontally on mobile view. Occassionally I had to remove the bootstrap class 'container' to prevent horizontal scrolling.
