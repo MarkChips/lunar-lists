@@ -30,32 +30,47 @@ A website which helps users keep track of their daily tasks.
 Someone who wants to better organise their tasks for each day. Busy people, forgetful people. People with a failing memory like my dad.
 
 ### Wireframes
+I used Balsamiq to create an MVP wireframe. The wireframes were to give an idea of what pages were needed, the buttons, and the general layout. I did not add any colour elements to the wireframes.
+
 #### Homepage
-![home wireframe](documentation/wireframes/Homewireframe.png)
+- In the final deployment I included more text on the homepage to better explain the use of the website.
+![home wireframe](documentation/wireframes/Homepage.png)
 
 #### Create an account
+- Change email address is a planned future feature.
 ![register wireframe](documentation/wireframes/Create-account.png)
 
 #### Login
+- In the deployed website, the user can login using their email address or their username.
 ![login wireframe](documentation/wireframes/Login-screen.png)
 
 #### Saved lists
+- 'Done tasks' is a planned future feature that would tally up the completed tasks out of the total tasks for each list.
 ![saved lists wireframe](documentation/wireframes/Saved-lists.png)
 
 #### Task view
+- In the deployed webiste, I have combined the 'add task' and 'edit' button on the task_view page. This button takes the user to the create_task page.
 ![Task view wireframe](documentation/wireframes/List-view.png)
 
-#### Create tasks
-![create tasks wireframe](documentation/wireframes/Create-list.png)
+#### Create list
+- In the deployed website, lists can now be created from the saved_lists page, negating the need for a separate page.
+![create list wireframe](documentation/wireframes/Create-list.png)
 
 #### Edit list
+- In the deployed website, I managed to move delete and edit buttons onto each entry. This proved to be more intuitive for users to select the desired task entry.
 ![edit list wireframe](documentation/wireframes/Edit-list-screen.png)
 
 #### Edit entry
+- This wireframe is very close to the final edit_task page. I found that the page did not needed to be overcomplicated.
 ![edit entry wireframe](documentation/wireframes/Edit-entry-screen.png)
 
 #### Account settings
+- 'Change email address' button is a planned future feature. I originally tried implementing the button with Django AllAuth, however it proved to be impossible to remove the verification email feature from the Django AllAuth email.html template.
 ![account settings wireframe](documentation/wireframes/Account-settings.png)
+
+#### Confirmation screen
+- In the deployed website, instead of using a confirmation page, I have used a bootstrap modal. The modal does not specify the list name or entry name, this is a planned future feature.
+![confirmation screen wireframe](documentation/wireframes/Delete-confirm-screen.png)
 
 ## Testing
 ### Responsiveness
@@ -124,8 +139,8 @@ I tested every python file using [CI Python Linter](https://pep8ci.herokuapp.com
 ![settings.py leftovers pep8 violations](documentation/validator/pep8/settings-after.png)
 
 #### Lighthouse
-I used opera dev tools lighthouse benchmark to test for accessibility, best practices, and SEO (search engine optimisation). I was able to improve the SEO by adding meta description and meta keywords into the head element. I also replaced divs with section elements. I improved the accessibility by making sure that the checkboxes are connected to labels, and that aria-labels are used for the website name and sample cases checkboxes.
-![lighthouse test results](documentation/validator/lighthouse-test.png)
+I used opera dev tools lighthouse benchmark to test for accessibility, best practices, and SEO (search engine optimisation). I was able to improve the SEO by adding meta description and meta keywords into the head element. I also replaced divs with section elements. I improved the accessibility by making sure that the checkboxes are connected to labels, and that aria-labels are used for the website name and sample cases checkboxes. In future I plan on working more on mobile performance since this was less than the desktop performance.
+![lighthouse test results](documentation/validator/lighthouse.png)
 
 ### Manual Testing
 #### base.html
