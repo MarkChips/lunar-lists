@@ -317,7 +317,13 @@ I tested every python file using [CI Python Linter](https://pep8ci.herokuapp.com
 ![settings.py leftovers pep8 violations](documentation/validator/pep8/settings-after.png)
 
 #### Lighthouse
-I used opera dev tools lighthouse benchmark to test for accessibility, best practices, and SEO (search engine optimisation). I was able to improve the SEO by adding meta description and meta keywords into the head element. I also replaced divs with section elements. I improved the accessibility by making sure that the checkboxes are connected to labels, and that aria-labels are used for the website name and sample cases checkboxes. In future I plan on working more on mobile performance since this was less than the desktop performance.
+I used opera dev tools lighthouse benchmark to test for accessibility, best practices, and SEO (search engine optimisation). 
+
+I was able to improve the SEO by adding meta description and meta keywords into the head element. I also replaced divs with section elements. 
+
+I improved the accessibility by making sure that the checkboxes are connected to labels, and that aria-labels are used for the website name and sample cases checkboxes. 
+
+I compressed the background image from 3mb to 1mb using https://tinypng.com/. In future I plan on working more on mobile performance since this was less than the desktop performance.
 
 ![lighthouse test results](documentation/validator/lighthouse.png)
 
