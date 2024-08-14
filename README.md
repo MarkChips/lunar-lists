@@ -428,3 +428,6 @@ The live link can be found here - https://lunar-lists-658001c5b8b7.herokuapp.com
 - The following were adjusted from the code institute tutorial project 'Django Blog':
   - Django message notifications
   - User login status
+### README
+ - Inspiration taken from [sojourn scribbles V3](https://github.com/katiejanecoughlan/sojourn-scribbles-V3/blob/main/README.md#agile-development). Particularly for the Kanban Board section.
+ - Inspiration taken from [the bear directory blog](https://github.com/Gordon-Meade/thebearadirectoryblog/blob/main/README.md#features-implemented)
