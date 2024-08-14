@@ -23,13 +23,16 @@ I used Lucidchart to create an ERD (entity relationship diagram). My project onl
 
 ### The Purpose and Target Audience
 #### Problem Statement
-I find myself to be very busy, so busy that I forget what needs to be done.
+There are many busy people out there with so many tasks on hand that they can't keep up. There are also many forgetful people out there who won't remember what needs to be done unless it is written down.
 
 #### Purpose
-A website which helps users keep track of their daily tasks.
+My website aims to allow users to quickly list all the tasks for a given day and mark each task as completed when finished.
 
 #### Target Audience
-Someone who wants to better organise their tasks for each day. Busy people, forgetful people. People with a failing memory like my dad.
+Someone who wants to better organise their tasks for each day. Busy people, forgetful people. Given the space theme, it will appeal more so to a younger audience.
+
+#### Personal Target
+To create a django website that facilitates all CRUD features, and looks pleasing to the eye.
 
 ### User stories
 In total I created 24 user stories and closed 17 of them. The rest have been added to the 'Future Features' list. I started off by writing out the user stories on a google document. I also included the moscow ranking beside each user story.
@@ -131,6 +134,15 @@ Every user story that I added to my kanban board, I made sure to add acceptance 
   - if user is not logged in it displays register and login links
   - if user is logged in it displays 'saved lists', 'account settings', and 'logout' links
   - navigation bar changes to burger bar menu if on smaller screens
+
+### Future features:
+- display tally total of tasks on a list and how many tasks have been completed
+- display task/list/user name on delete confirmation modal
+- allow users to change their email address
+- allow tasks to be reordered in task_view
+- sort saved_lists by date or name
+- allow for tasks to be numbered by priority
+- add email verification
 
 ## Design
 ### Wireframes
