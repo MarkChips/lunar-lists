@@ -29,6 +29,22 @@ A website which helps users keep track of their daily tasks.
 #### Target Audience
 Someone who wants to better organise their tasks for each day. Busy people, forgetful people. People with a failing memory like my dad.
 
+### User stories
+In total I created 24 user stories and closed 17 of them. The rest have been added to the 'Future Features' list. I started off by writing out the user stories on a google document. I also included the moscow ranking beside each user story.
+![user stories on google docs](documentation/user-stories/user-story-google-doc.png)
+
+Every user story that I added to my kanban board, I made sure to add acceptance criteria and a list of task tickboxes. Below I have included some key user stories that helped me reach my goals.
+
+- I wanted the list creation to be minimal so that lists can be created quickly and with ease. The task list helped me think where to start. After a while I understood that first you create the models, then the view, urls, and finally the template.
+![create a to do list user story](documentation/user-stories/create-to-do-list.png)
+
+- During development I talked to various friends and family members about my website, and it became clear that it wasn't obvious enough of what the website could be used for. For this reason I thought it important to provide example cases and a display example.
+![use case examples user story](documentation/user-stories/use-cases.png)
+
+- From feedback it became clear that having just a list of items to-do without being able to cross them off was not that useful. For this reason I felt it important to be able to mark items as completed. It took a few iterations before I was able to make the checkboxes update the correct task, remain checked, and allow for unchecking.
+![mark a task as completed user story](documentation/user-stories/mark-done.png)
+
+
 ## Design
 ### Wireframes
 I used Balsamiq to create an MVP wireframe. The wireframes were to give an idea of what pages were needed, the buttons, and the general layout. I did not add any colour elements to the wireframes.
@@ -99,16 +115,11 @@ I used dev tools on firefox and set the responsive design mode to iPhone 11 pro 
 
 Below are displayed screenshots of all the pages as they would appear on an iphone 11 pro:
 
-![index page mobile view](documentation/screenshots/index.png)
-![register page mobile view](documentation/screenshots/register.png)
-![login page mobile view](documentation/screenshots/login.png)
-![logout page mobile view](documentation/screenshots/logout.png)
-![account settings page mobile view](documentation/screenshots/account-settings.png)
-![change password page mobile view](documentation/screenshots/change-password.png)
-![saved lists page mobile view](documentation/screenshots/saved-lists.png)
-![task view page mobile view](documentation/screenshots/task-view.png)
-![create tasks page mobile view](documentation/screenshots/create-task.png)
-![edit task page mobile view](documentation/screenshots/edit-task.png)
+![index page mobile view](documentation/screenshots/index.png)![register page mobile view](documentation/screenshots/register.png)
+![login page mobile view](documentation/screenshots/login.png)![logout page mobile view](documentation/screenshots/logout.png)
+![account settings page mobile view](documentation/screenshots/account-settings.png)![change password page mobile view](documentation/screenshots/change-password.png)
+![saved lists page mobile view](documentation/screenshots/saved-lists.png)![task view page mobile view](documentation/screenshots/task-view.png)
+![create tasks page mobile view](documentation/screenshots/create-task.png)![edit task page mobile view](documentation/screenshots/edit-task.png)
 
 ### Validation
 #### HTML
