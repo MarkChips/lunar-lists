@@ -434,6 +434,14 @@ The live link can be found here - https://lunar-lists-658001c5b8b7.herokuapp.com
 - The following were adjusted from the code institute tutorial project 'Django Blog':
   - Django message notifications
   - User login status
+  - Referenced for how to write developer comments on python
+- https://www.perplexity.ai/ used for the following:
+  - explain error messages
+  - explain how pieces of code work
+  - explain how to implement certain features
+  - primarily used for views.py
+- https://www.w3schools.com/
+  - revision on css, html, and django
 ### README
  - Inspiration taken from [sojourn scribbles V3](https://github.com/katiejanecoughlan/sojourn-scribbles-V3/blob/main/README.md#agile-development). Particularly for the Kanban Board section.
  - Inspiration taken from [the bear directory blog](https://github.com/Gordon-Meade/thebearadirectoryblog/blob/main/README.md#features-implemented)
