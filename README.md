@@ -44,8 +44,87 @@ Every user story that I added to my kanban board, I made sure to add acceptance 
 - From feedback it became clear that having just a list of items to-do without being able to cross them off was not that useful. For this reason I felt it important to be able to mark items as completed. It took a few iterations before I was able to make the checkboxes update the correct task, remain checked, and allow for unchecking.
 ![mark a task as completed user story](documentation/user-stories/mark-done.png)
 
+## Features
+### Create
+- Create an account
+  - email must be unique
+  - password must match criteria
+  - password is repeated as an additional check
+- Create a list
+  - give it a custom title, does not need to be unique
+  - option to add due_by date
+    - default due date is the current day
+- Create tasks on the list
 
+![create list drop down form](documentation/screenshots/features/create-list-form.png)
 
+### Read
+- See all created lists listed in a table
+  - numbered on the left
+  - list titles link to task_view
+  - due_by displayed
+  - created_on displayed in BST/GMT
+- View an individual list and all of the tasks belonging to it
+  - list title displayed at top
+  - due_by displayed as top
+  - each entry displayed on its own rocket div
+- logged in user's username is displayed at the top of the page
+
+![an entry from task_view](documentation/screenshots/features/task-view-rocket.png)
+
+### Update
+- Edit individual tasks changing their text
+  - text field prepopulates with current task description
+  - the option to cancel change and return to create_task
+- Mark tasks as completed
+  - tasks can be checked and unchecked
+  - is_completed status is remembered when you return to the list
+- Change user password
+  - requires previous password for security
+  - password must match criteria
+  - password is repeated as an additional check
+
+![entry with the option to edit or delete](documentation/screenshots/features/create-task-rocket.png)
+
+### Delete
+- Delete list
+  - all tasks belonging to the list are deleted with the list
+  - confirmation modal is displayed before deletion is made
+- Delete task entry
+  - confirmation modal is displayed before deletion is made
+- Delete user account
+  - all tasks and lists belonging to the user are also deleted
+  - confirmation modal is displayed before deletion is made
+
+![account settings with the option to change password or delete account](documentation/screenshots/features/account-settings-buttons.png)
+
+### Notifications displayed when user:
+- creates an account
+- deletes an account
+- creates a list
+- deletes a list
+- creates a task
+- deletes a task
+- edits a task
+
+### Requires correct request user for:
+- delete an account
+- create a list
+- delete a list
+- create a task
+- delete a task
+- edit a task
+
+### Additional features:
+- user can login to their account using their email or username and password
+- user can logout
+- buttons displayed on index.html change depending on login status
+- message displayed on saved_list changes depending on whether user has a list or not
+- message displays on create_task if user has not created a task yet
+- navigation bar
+  - if user is not logged in it displays register and login links
+  - if user is logged in it displays 'saved lists', 'account settings', and 'logout' links
+  - navigation bar changes to burger bar menu if on smaller screens
 
 ## Design
 ### Wireframes
