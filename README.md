@@ -29,6 +29,7 @@ A website which helps users keep track of their daily tasks.
 #### Target Audience
 Someone who wants to better organise their tasks for each day. Busy people, forgetful people. People with a failing memory like my dad.
 
+## Design
 ### Wireframes
 I used Balsamiq to create an MVP wireframe. The wireframes were to give an idea of what pages were needed, the buttons, and the general layout. I did not add any colour elements to the wireframes.
 
@@ -71,6 +72,24 @@ I used Balsamiq to create an MVP wireframe. The wireframes were to give an idea 
 #### Confirmation screen
 - In the deployed website, instead of using a confirmation page, I have used a bootstrap modal. The modal does not specify the list name or entry name, this is a planned future feature.
 ![confirmation screen wireframe](documentation/wireframes/Delete-confirm-screen.png)
+
+## Agile
+Throughout this project I took an agile approach. I created user stories to justify all design choices from the user perspective. I focused on the MVP before adding additional features, and improving them through iterations. I monitored my progress by using a kanban board on github projects, which can be found here: https://github.com/users/MarkChips/projects/5/views/1
+
+### Kanban Board
+The Kanban board served as a visual representation of the project's progress and allowed for effective task management. It consisted of the following sections:
+
+- Backlog: This section contained all of the tasks and user stories that were yet to be prioritized for implementation.
+- Ready: Many tasks required other tasks to be implemented first. With this in mind, I would add tasks to this column once it was possible to work on them.
+- In Progress: Work in progress was tracked here, indicating tasks actively being worked on.
+- In Review: Any tasks that I felt were not fully implemented or had any issues, I would add to this column to be revisited.
+- Done: Tasks that did not require any further work were moved into this column.
+- Future Features: Ideas and tasks earmarked for future development were kept in this column for consideration in subsequent iterations.
+
+![screenshot of kanban board in progress](documentation/screenshots/project-kanban-progress.png)
+
+### MOSCOW Prioritisation
+All user stories were assigned a moscow prioritisation to determine which user stories needed to be worked on first. Using github projects I created labels for each moscow rank and assigned them to each user story. I made these visible on the project page so that I could easily spot the priorities. All items required for the MVP were given the 'Must have' rank.
 
 ## Testing
 ### Responsiveness
