@@ -45,6 +45,8 @@ Every user story that I added to my kanban board, I made sure to add acceptance 
 ![mark a task as completed user story](documentation/user-stories/mark-done.png)
 
 
+
+
 ## Design
 ### Wireframes
 I used Balsamiq to create an MVP wireframe. The wireframes were to give an idea of what pages were needed, the buttons, and the general layout. I did not add any colour elements to the wireframes.
@@ -113,13 +115,33 @@ I used dev tools on firefox and set the responsive design mode to iPhone 11 pro 
 - The navbar turns into a burger bar on small screen sizes.
 - The task entries take up the full width on small screen sizes, while only taking up a third on large screens.
 
-Below are displayed screenshots of all the pages as they would appear on an iphone 11 pro:
+I went page by page testing the responsiveness, and only moving on once satisfied:
+| HTML page       | Pass? |
+|-----------------|-------|
+| index           | ✅     |
+| logout          | ✅     |
+| signup          | ✅     |
+| login           | ✅     |
+| account_settings| ✅     |
+| password_change | ✅     |
+| saved_lists     | ✅     |
+| task_view       | ✅     |
+| create_task     | ✅     |
+| edit_task       | ✅     |
 
-![index page mobile view](documentation/screenshots/index.png)![register page mobile view](documentation/screenshots/register.png)
-![login page mobile view](documentation/screenshots/login.png)![logout page mobile view](documentation/screenshots/logout.png)
-![account settings page mobile view](documentation/screenshots/account-settings.png)![change password page mobile view](documentation/screenshots/change-password.png)
-![saved lists page mobile view](documentation/screenshots/saved-lists.png)![task view page mobile view](documentation/screenshots/task-view.png)
-![create tasks page mobile view](documentation/screenshots/create-task.png)![edit task page mobile view](documentation/screenshots/edit-task.png)
+Below are example screenshots of key pages as they would appear on an iphone 11 pro vs how they appear on my desktop screen:
+
+#### index.html:
+![index page mobile view](documentation/screenshots/index.png)
+![index page desktop view](documentation/screenshots/index-lg.png)
+
+#### saved_lists.html:
+![saved lists page mobile view](documentation/screenshots/saved-lists.png)
+![saved lists page desktop view](documentation/screenshots/saved-lists-lg.png)
+
+#### task_view.html:
+![task view page mobile view](documentation/screenshots/task-view.png)
+![task view page desktop view](documentation/screenshots/task-view-lg.png)
 
 ### Validation
 #### HTML
@@ -139,6 +161,7 @@ I tested all HTML templates via text input on [W3 HTML validator](https://valida
 | edit_task       | ✅     |
 
 Two pages had errors which needed to be fixed: signup and password_change. The form created by Django AllAuth and inserted with the django template language caused four errors:
+
 ![HTML validator error messages](documentation/validator/html/password-change-before-errors.png)
 
 It appears these issues were caused by the `<p>` and `<span>` element used by the django form insertion. Changing `{{ form.as_p }}` to `{{ form.as_div }}` fixed the errors, however it completely ruined the layout causing one of the fields to appear completely out of place. The only option left was to manually place all the labels and link to the individual form fields. After running the new code through the validator it showed no errors. I also tested the signup and password_change pages and found that they still functioned as they should.
