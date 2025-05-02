@@ -31,7 +31,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 DEBUG = False
 
 ALLOWED_HOSTS = [
-    '8000-markchips-lunarlists-p6fixvocst7.ws.codeinstitute-ide.net',
+    '127.0.0.1',
     '.herokuapp.com',
 ]
 CSRF_TRUSTED_ORIGINS = [
