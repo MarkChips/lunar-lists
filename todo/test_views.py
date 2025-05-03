@@ -48,6 +48,12 @@ class TestTodoViews(TestCase):
             'list_name': 'New list',
             'due_by': '2025-05-10'
         }
-        response = self.client.post(reverse('list_view'), list_data)
+        response = self.client.post(
+            reverse('list_view'), list_data, follow=True)
+        # Check redirect chain
         self.assertEqual(response.status_code, 200)
+        # Check that the list was created in the database
+        self.assertTrue(List.objects.filter(
+            list_name='New list', user=self.user).exists())
+        # Check for the success message
         self.assertIn(b'New lunar list created!', response.content)
