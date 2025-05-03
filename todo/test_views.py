@@ -27,3 +27,11 @@ class TestTodoViews(TestCase):
             list=self.list
         )
         self.task.save()
+
+        def test_render_list_view_with_list_form(self):
+            response = self.client.get(reverse('list_view'))
+            self.assertEqual(response.status_code, 200)
+            self.assertIn(b'List name', response.content)
+            self.assertIn(b'1995-10-03', response.content)
+            self.assertIn(b'2025-10-03', response.content)
+            self.assertIsInstance(response.context['list_form'], ListForm)
