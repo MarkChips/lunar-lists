@@ -57,3 +57,14 @@ class TestTodoViews(TestCase):
             list_name='New list', user=self.user).exists())
         # Check for the success message
         self.assertIn(b'New lunar list created!', response.content)
+
+    def test_list_delete(self):
+        self.client.login(
+            username='myUsername',
+            password='myPassword'
+        )
+        response = self.client.post(
+            reverse('list_delete', args=[self.list.id]), follow=True)
+        self.assertRedirects(response, reverse('list_view'))
+        self.assertFalse(List.objects.filter(id=self.list.id).exists())
+        self.assertIn(b'List deleted successfully', response.content)
