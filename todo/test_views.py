@@ -65,10 +65,10 @@ class TestTodoViews(TestCase):
     def test_create_task(self):
         task_data = {
             'task_description': 'New task',
-            'list': self.list
         }
         response = self.client.post(
             reverse('create_task', args=[self.list.id]), task_data, follow=True)
+        self.assertEqual(response.status_code, 200)
         self.assertTrue(Task.objects.filter(task_description='New task',
                         list=self.list).exists())
         self.assertIn(b'Task added to lunar list!', response.content)
@@ -77,6 +77,7 @@ class TestTodoViews(TestCase):
     def test_task_delete(self):
         response = self.client.post(
             reverse('task_delete', args=[self.list.id, self.task.id]), follow=True)
+        self.assertEqual(response.status_code, 200)
         self.assertRedirects(response, reverse(
             'create_task', args=[self.list.id]))
         self.assertFalse(Task.objects.filter(id=self.task.id).exists())
@@ -86,9 +87,9 @@ class TestTodoViews(TestCase):
     def test_edit_task(self):
         response = self.client.post(reverse('edit_task', args=[self.list.id, self.task.id]), {
             'task_description': 'Updated task',
-            'list': self.list
         }, follow=True)
         self.task.refresh_from_db()
+        self.assertEqual(response.status_code, 200)
         self.assertEqual(self.task.task_description, 'Updated task')
         self.assertRedirects(response, reverse(
             'create_task', args=[self.list.id]))
@@ -101,6 +102,7 @@ class TestTodoViews(TestCase):
             'is_completed': True
         }, follow=True)
         self.task.refresh_from_db()
+        self.assertEqual(response.status_code, 200)
         self.assertTrue(self.task.is_completed)
         self.assertRedirects(response, reverse(
             'task_view', args=[self.list.id]))
@@ -109,6 +111,7 @@ class TestTodoViews(TestCase):
     def test_list_delete(self):
         response = self.client.post(
             reverse('list_delete', args=[self.list.id]), follow=True)
+        self.assertEqual(response.status_code, 200)
         self.assertRedirects(response, reverse('list_view'))
         self.assertFalse(List.objects.filter(id=self.list.id).exists())
         self.assertIn(b'List deleted successfully', response.content)
