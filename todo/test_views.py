@@ -115,3 +115,12 @@ class TestTodoViews(TestCase):
         self.assertRedirects(response, reverse('list_view'))
         self.assertFalse(List.objects.filter(id=self.list.id).exists())
         self.assertIn(b'List deleted successfully', response.content)
+
+    @login
+    def test_delete_user(self):
+        response = self.client.post(
+            reverse('delete_user', args=[self.user.id]), follow=True)
+        self.assertEqual(response.status_code, 200)
+        self.assertRedirects(response, reverse('home'))
+        self.assertFalse(User.objects.filter(id=self.user.id).exists())
+        self.assertIn(b'successfully deleted', response.content)
