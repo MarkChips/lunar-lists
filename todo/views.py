@@ -27,9 +27,11 @@ def list_view(request):
     """
     Display :model:`todo.List`. Create a new List.
 
-    **Context**
+    **Context:**
+
     ``lists``
         All :model:`todo.List` created by request user.
+
     ``list_form``
         An instance of :form:`todo.ListForm`.
 
@@ -85,11 +87,14 @@ def create_task(request, list_id):
     """
     Create an instance of :model:`todo.Task`.
 
-    **Context**
+    **Context:**
+
     ``list``
         An instance of :model:`todo.List`.
+
     ``tasks``
         All :model:`todo.Task` belonging to parent list.
+
     ``task_form``
         An instance of :form:`todo.TaskForm`.
 
@@ -155,11 +160,14 @@ def edit_task(request, list_id, task_id):
     """
     Update an instance of :model:`todo.Task`.
 
-    **Context**
+    **Context:**
+
     ``form``
         An instance of :form:`todo.TaskForm`.
+
     ``list``
         A parent instance of :model:`todo.List`.
+
     ``task``
         An instance of :model:`todo.Task`.
 
@@ -201,9 +209,11 @@ def task_view(request, list_id):
     Display all tasks belonging to a list.
     Mark a task as completed.
 
-    **Context**
+    **Context:**
+
     ``list``
         An instance of :model:`todo.List`.
+
     ``tasks``
         All :model:`todo.Task` belonging to parent list.
 
@@ -240,9 +250,9 @@ def delete_user(request, user_id):
     """
     Delete user's account.
 
-    **Context**
+    **Context:**
     ``user``
-        An instance of :model:`auth.User`.
+        - An instance of :model:`auth.User`.
 
     **Template:**
     :template:`todo/index.html`
