@@ -62,6 +62,19 @@ class TestTodoViews(TestCase):
         self.assertIn(b'New lunar list created!', response.content)
 
     @login
+    def test_create_task(self):
+        task_data = {
+            'task_description': 'New task',
+            'is_completed': True,
+            'list': self.list
+        }
+        response = self.client.post(
+            reverse('create_task', args=[self.list.id]), task_data, follow=True)
+        self.assertTrue(Task.objects.filter(task_description='New task',
+                        list=self.list).exists())
+        self.assertIn(b'Task added to lunar list!', response.content)
+
+    @login
     def test_list_delete(self):
         response = self.client.post(
             reverse('list_delete', args=[self.list.id]), follow=True)
