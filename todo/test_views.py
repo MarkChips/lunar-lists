@@ -1,7 +1,7 @@
 from django.contrib.auth.models import User
 from django.urls import reverse
 from django.test import TestCase
-from .forms import ListForm, TaskForm
+from .forms import ListForm
 from .models import List, Task
 
 
@@ -47,27 +47,22 @@ class TestTodoViews(TestCase):
 
     @login
     def test_successful_list_creation(self):
-        list_data = {
-            'list_name': 'New list',
-            'due_by': '2025-05-10'
-        }
         response = self.client.post(
-            reverse('list_view'), list_data, follow=True)
-        # Check redirect chain
+            reverse('list_view'), {
+                'list_name': 'New list',
+                'due_by': '2025-05-10'
+            }, follow=True)
         self.assertEqual(response.status_code, 200)
-        # Check that the list was created in the database
         self.assertTrue(List.objects.filter(
             list_name='New list', user=self.user).exists())
-        # Check for the success message
         self.assertIn(b'New lunar list created!', response.content)
 
     @login
     def test_create_task(self):
-        task_data = {
-            'task_description': 'New task',
-        }
         response = self.client.post(
-            reverse('create_task', args=[self.list.id]), task_data, follow=True)
+            reverse('create_task', args=[self.list.id]), {
+                'task_description': 'New task',
+            }, follow=True)
         self.assertEqual(response.status_code, 200)
         self.assertTrue(Task.objects.filter(task_description='New task',
                         list=self.list).exists())
