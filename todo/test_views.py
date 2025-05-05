@@ -65,7 +65,7 @@ class TestTodoViews(TestCase):
     def test_create_task(self):
         task_data = {
             'task_description': 'New task',
-            'is_completed': True,
+            'is_completed': False,
             'list': self.list
         }
         response = self.client.post(
@@ -82,6 +82,20 @@ class TestTodoViews(TestCase):
             'create_task', args=[self.list.id]))
         self.assertFalse(Task.objects.filter(id=self.task.id).exists())
         self.assertIn(b'Task removed', response.content)
+
+    @login
+    def test_edit_task(self):
+        response = self.client.post(reverse('edit_task', args=[self.list.id, self.task.id]), {
+            'task_description': 'Updated task',
+            'is_completed': True,
+            'list': self.list
+        }, follow=True)
+        self.task.refresh_from_db()
+        self.assertEqual(self.task.task_description, 'Updated task')
+        self.assertEqual(self.task.is_completed, True)
+        self.assertRedirects(response, reverse(
+            'create_task', args=[self.list.id]))
+        self.assertIn(b'Lunar list entry updated!', response.content)
 
     @login
     def test_list_delete(self):
